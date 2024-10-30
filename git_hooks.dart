@@ -81,11 +81,19 @@ Future<bool> _conventionalCommitMsg() async {
 }
 
 class CommitValidator {
+  static final String typePattern = '^(${commitTypes.keys.join('|')})';
+  static const String scopePattern = '(\\([\\w\\-\\.]+\\))?';
+  static const String breakingChangePattern = '(!)?';
+  static const String delimiterPattern = ': ';
+  static const String descriptionPattern = '(.+)';
+  static const String bodyPattern = '([\\s\\S]*)';
+
   static final RegExp conventionCommitPattern = RegExp(
-      '^(${commitTypes.keys.join('|')})(\\([\\w\\-\\.]+\\))?(!)?: ([\\w\\s\\:\\-\\!\\@\\#\\\$\\%\\^\\&\\*\\(\\)\\+\\=\\[\\]\\{\\}\\|\\;\\\'\\,\\.\\<\\>\\?\\/\\~\\`]+)([\\s\\S]*)');
+      '$typePattern$scopePattern$breakingChangePattern$delimiterPattern$descriptionPattern$bodyPattern');
 
   static bool isValidCommitType(String commitMsg) {
-    return commitTypes.keys.any((type) => commitMsg.startsWith('$type:'));
+    return commitTypes.keys.any((type) =>
+        commitMsg.startsWith('$type:') || commitMsg.startsWith('$type('));
   }
 
   static bool isConventionalCommit(String commitMsg) {
