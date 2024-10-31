@@ -1,6 +1,6 @@
-import 'package:cacao_boardgame_helper/core/constants/app_text_styles.dart';
-import 'package:cacao_boardgame_helper/core/constants/assets.dart';
-import 'package:cacao_boardgame_helper/core/routes/app_routes.dart';
+import 'package:cacao_boardgame_helper/config/constants/assets.dart';
+import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
+import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/background_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

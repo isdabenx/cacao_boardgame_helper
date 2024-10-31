@@ -1,4 +1,4 @@
-import 'package:cacao_boardgame_helper/core/routes/app_routes.dart';
+import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {

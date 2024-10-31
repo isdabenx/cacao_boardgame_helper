@@ -1,4 +1,4 @@
-import 'package:cacao_boardgame_helper/core/constants/assets.dart';
+import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/mirrored_image_widget.dart';
 import 'package:flutter/material.dart';
 
