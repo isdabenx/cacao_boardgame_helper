@@ -1,3 +1,4 @@
+import 'package:cacao_boardgame_helper/core/constants/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/core/constants/assets.dart';
 import 'package:cacao_boardgame_helper/core/routes/app_routes.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/background_image_widget.dart';
@@ -56,32 +57,50 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: BackgroundImageWidget(),
-          ),
+          _BackgroundImage(),
           Center(
             child: CircularProgressIndicator(),
           ),
-          Positioned(
-            top: imageHeight,
-            child: SizedBox(
-              width: size.width,
-              child: Center(
-                child: Text(
-                  'Loading...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 44,
-                    fontFamily: 'burrito',
-                  ),
-                ),
-              ),
-            ),
-          ),
+          _LoadingText(top: imageHeight, width: size.width),
         ],
+      ),
+    );
+  }
+}
+
+class _BackgroundImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 0,
+      left: 0,
+      right: 0,
+      child: BackgroundImageWidget(),
+    );
+  }
+}
+
+class _LoadingText extends StatelessWidget {
+  const _LoadingText({
+    required this.top,
+    required this.width,
+  });
+
+  final double top;
+  final double width;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: top,
+      child: SizedBox(
+        width: width,
+        child: Center(
+          child: Text(
+            'Loading...',
+            style: AppTextStyles.loadingTextStyle,
+          ),
+        ),
       ),
     );
   }
