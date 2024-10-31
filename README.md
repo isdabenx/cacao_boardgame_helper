@@ -180,6 +180,61 @@ project_name
       - `example_use_case_test.dart`: Test per un cas d'ús concret.
       - `example_screen_test.dart`: Test de widget o de pantalla.
 
+## Convencions de Noms
+
+Per mantenir la coherència i la llegibilitat del codi, seguim les següents convencions de noms:
+
+### Classes i Enums
+
+- Utilitzem el `PascalCase` per a les classes i els enums.
+  - Exemple bo: ✔️ `UserProfile`, `GameStatus`
+  - Exemple dolent: ❌ `userProfile`, `game_status`, `USERPROFILE`
+
+### Mètodes i Funcions
+
+- Utilitzem el `camelCase` per als noms de mètodes i funcions.
+  - Exemple bo: ✔️ `getUserProfile()`, `calculateScore()`
+  - Exemple dolent: ❌ `GetUserProfile()`, `calculate_score()`, `calculateScore`
+
+### Variables i Constants
+
+- Utilitzem el `camelCase` per a les variables i constants.
+  - Exemple bo: ✔️ `userName`, `gameScore`, `maxPlayers`, `defaultScore`
+  - Exemple dolent: ❌ `UserName`, `game_score`, `MAX_PLAYERS`, `default_score`
+
+### Arxius
+
+- Utilitzem el `snake_case` per als noms d'arxius.
+  - Exemple bo: ✔️ `user_profile.dart`, `game_status.dart`
+  - Exemple dolent: ❌ `UserProfile.dart`, `gameStatus.dart`, `userprofile.dart`
+
+### Widgets
+
+- Utilitzem el `PascalCase` per als noms de widgets.
+  - Exemple bo: ✔️ `UserProfileWidget`, `GameScoreWidget`
+  - Exemple dolent: ❌ `userProfileWidget`, `game_score_widget`, `Userprofilewidget`
+
+### Tests
+
+- Utilitzem el `snake_case` per als noms d'arxius de tests, seguint el nom de l'arxiu que estan testejant.
+  - Exemple bo: ✔️ `user_profile_test.dart`, `game_status_test.dart`
+  - Exemple dolent: ❌ `UserProfileTest.dart`, `gameStatusTest.dart`, `userprofiletest.dart`
+
+### Sufixos de Fitxers
+
+- Alguns fitxers utilitzen el seu propi sufix depenent del directori:
+  - `models/`: `*_model.dart`
+  - `repositories/`: `*_repository.dart`
+  - `data_sources/`: `*_data_source.dart`
+  - `entities/`: `*_entity.dart`
+  - `use_cases/`: `*_use_case.dart`
+  - `providers/`: `*_provider.dart`
+  - `screens/`: `*_screen.dart`
+  - `widgets/`: `*_widget.dart`
+  - `implementations/`: `*_impl.dart`
+
+Seguint aquestes convencions, assegurem que el codi sigui fàcil de llegir i mantenir per a tots els membres de l'equip.
+
 ## Llicència
 
 Aquest projecte està llicenciat sota la Llicència Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International. Consulta l'arxiu `LICENSE` per a més detalls.
