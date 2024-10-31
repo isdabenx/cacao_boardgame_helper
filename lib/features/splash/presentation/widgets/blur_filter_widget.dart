@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class BlurFilter extends StatelessWidget {
-  const BlurFilter({
+class BlurFilterWidget extends StatelessWidget {
+  const BlurFilterWidget({
     super.key,
   });
 

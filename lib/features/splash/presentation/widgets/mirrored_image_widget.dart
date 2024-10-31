@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:cacao_boardgame_helper/core/constants/assets.dart';
-import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/blur_filter.dart';
+import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/blur_filter_widget.dart';
 import 'package:flutter/material.dart';
 
-class MirroredImage extends StatelessWidget {
-  const MirroredImage({
+class MirroredImageWidget extends StatelessWidget {
+  const MirroredImageWidget({
     super.key,
   });
 
@@ -33,7 +33,7 @@ class MirroredImage extends StatelessWidget {
             child: Image.asset(Assets.splashBackground),
           ),
         ),
-        BlurFilter(),
+        BlurFilterWidget(),
       ]),
     );
   }
