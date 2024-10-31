@@ -22,3 +22,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+  fonts:
+    - family: Burrito
+      fonts:
+        - asset: assets/fonts/burrito.ttf
