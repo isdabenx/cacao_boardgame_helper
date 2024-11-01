@@ -8,15 +8,30 @@ Cacao Boardgame Helper és una aplicació mòbil desenvolupada amb Flutter disse
 
 🚧 **En Desenvolupament** 🚧
 
-L'aplicació està en fase de desenvolupament actiu. Les característiques actuals i planificades inclouen:
-
-...
-
 ## Característiques
 
-- Multiplataforma (iOS i Android)
-- Interfície intuïtiva i fàcil d'utilitzar
-- Dissenyat específicament per a jugadors de Cacao
+- **Accés a manuals**: Els usuaris poden consultar els manuals del joc base i de les expansions (Chocolatl, Diamante, etc.).
+- **Configuració de nova partida**:
+  - **Selecció de jugadors**: Els usuaris poden triar el nombre de jugadors (2, 3 o 4), assignar un color i un nom a cada jugador. Poden seleccionar usuaris existents o crear-ne de nous.
+  - **Selecció d'expansions**: Els usuaris poden seleccionar les expansions que volen utilitzar a la partida.
+  - **Selecció de mòduls**: Els usuaris poden triar quins mòduls de cada expansió volen incloure a la partida.
+  - **Preparació de la partida**: L'aplicació guia els usuaris en la preparació del tauler segons les expansions i mòduls seleccionats.
+  - **Resum de llosetes**: Els usuaris poden veure un resum de les llosetes de selva disponibles i accedir a la informació detallada de cadascuna.
+  - **Temporitzador opcional**: Els usuaris poden activar un temporitzador per a cada torn i configurar la seva durada.
+- **Assistència durant la partida**:
+  - **Resum de regles ràpid**: Els usuaris poden consultar les regles bàsiques del joc base i de les expansions.
+  - **Consulta de llosetes**: Els usuaris poden obtenir informació detallada de cada lloseta de selva.
+  - **Temporitzador per torns**: L'aplicació mostra el temps restant per al torn actual i permet als usuaris controlar el temporitzador.
+- **Final de partida**:
+  - **Comptador de punts**: L'aplicació calcula automàticament la puntuació de cada jugador.
+  - **Resum de puntuació**: Els usuaris poden veure un resum clar de la puntuació final.
+  - **Determinació del guanyador**: L'aplicació determina el guanyador de la partida.
+- **Configuració de l'aplicació**:
+  - **Ajust de so i vibració**.
+  - **Personalització de la visualització**.
+  - **Indicació de les expansions disponibles**.
+  - **Selecció d'idioma**: Els usuaris poden canviar l'idioma de l'aplicació.
+- **Base de dades de llosetes**: Els usuaris poden consultar informació detallada
 
 ## Prerequisits
 
