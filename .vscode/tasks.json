@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "$(flame) PreCommit",
+			"type": "dart",
+			"command": "dart",
+			"args": [
+				"run",
+				"dart_pre_commit"
+			],
+		}
+	]
+}
