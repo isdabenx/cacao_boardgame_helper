@@ -1,33 +1,17 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
+import 'package:cacao_boardgame_helper/features/splash/presentation/providers/splash_provider.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/background_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    _enableImmersiveMode();
-    _startInitialization();
-  }
 
   void _enableImmersiveMode() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-  }
-
-  @override
-  void dispose() {
-    _disableImmersiveMode();
-    super.dispose();
   }
 
   void _disableImmersiveMode() {
@@ -35,19 +19,32 @@ class _SplashScreenState extends State<SplashScreen> {
         overlays: SystemUiOverlay.values);
   }
 
-  Future<void> _startInitialization() async {
-    await Future.delayed(const Duration(seconds: 12));
-    _navigateToHomeScreen();
-  }
-
-  void _navigateToHomeScreen() {
+  void _navigateToHomeScreen(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Navigator.pushReplacementNamed(context, AppRoutes.home);
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final splashScreenProviderState = ref.watch(splashScreenProvider);
+
+    splashScreenProviderState.when(
+      data: (_) {
+        _disableImmersiveMode();
+        _navigateToHomeScreen(context);
+      },
+      loading: () => _enableImmersiveMode(),
+      error: (error, stackTrace) {
+        _disableImmersiveMode();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: $error'),
+          ),
+        );
+      },
+    );
+
     final Size size = MediaQuery.of(context).size;
     final double imageAspectRatio =
         Assets.splashBackgroundWidth / Assets.splashBackgroundHeight;
