@@ -10,28 +10,53 @@ Cacao Boardgame Helper és una aplicació mòbil desenvolupada amb Flutter disse
 
 ## Característiques
 
-- **Accés a manuals**: Els usuaris poden consultar els manuals del joc base i de les expansions (Chocolatl, Diamante, etc.).
-- **Configuració de nova partida**:
-  - **Selecció de jugadors**: Els usuaris poden triar el nombre de jugadors (2, 3 o 4), assignar un color i un nom a cada jugador. Poden seleccionar usuaris existents o crear-ne de nous.
-  - **Selecció d'expansions**: Els usuaris poden seleccionar les expansions que volen utilitzar a la partida.
-  - **Selecció de mòduls**: Els usuaris poden triar quins mòduls de cada expansió volen incloure a la partida.
-  - **Preparació de la partida**: L'aplicació guia els usuaris en la preparació del tauler segons les expansions i mòduls seleccionats.
-  - **Resum de llosetes**: Els usuaris poden veure un resum de les llosetes de selva disponibles i accedir a la informació detallada de cadascuna.
-  - **Temporitzador opcional**: Els usuaris poden activar un temporitzador per a cada torn i configurar la seva durada.
-- **Assistència durant la partida**:
-  - **Resum de regles ràpid**: Els usuaris poden consultar les regles bàsiques del joc base i de les expansions.
-  - **Consulta de llosetes**: Els usuaris poden obtenir informació detallada de cada lloseta de selva.
-  - **Temporitzador per torns**: L'aplicació mostra el temps restant per al torn actual i permet als usuaris controlar el temporitzador.
-- **Final de partida**:
-  - **Comptador de punts**: L'aplicació calcula automàticament la puntuació de cada jugador.
-  - **Resum de puntuació**: Els usuaris poden veure un resum clar de la puntuació final.
-  - **Determinació del guanyador**: L'aplicació determina el guanyador de la partida.
-- **Configuració de l'aplicació**:
-  - **Ajust de so i vibració**.
-  - **Personalització de la visualització**.
-  - **Indicació de les expansions disponibles**.
-  - **Selecció d'idioma**: Els usuaris poden canviar l'idioma de l'aplicació.
-- **Base de dades de llosetes**: Els usuaris poden consultar informació detallada
+### 🏠 Menú Principal
+
+- Accés ràpid a totes les funcionalitats, incloent configuració de partida, manuals, configuració general i selecció d'idioma.
+
+### 📖 Manuals Integrats
+
+- Accedeix als manuals del joc base i de totes les expansions disponibles, amb una versió optimitzada per a la lectura en dispositius mòbils.
+- Opció de descarregar manuals oficials en PDF per a consulta fora de línia.
+
+### 🎲 Configuració de Partida
+
+- Selecciona el nombre de jugadors, assigna'ls un color i un nom personalitzats.
+- Tria expansions i mòduls per a cada partida de manera fàcil, amb opcions de selecció aleatòria per variar l'experiència.
+- Configura les llosetes segons el nombre de jugadors i les expansions seleccionades.
+
+### 🕒 Temporitzador de Torn
+
+- Activa un temporitzador per controlar la duració de cada torn, amb avisos sonors opcionalment configurables per avisar del temps restant.
+
+### 📊 Assistència durant la Partida
+
+- Consulta ràpida de regles i detalls de les llosetes, amb una descripció completa de cada lloseta segons el seu efecte i puntuació.
+- Temporitzador per gestionar fàcilment els torns i mantenir la partida dinàmica.
+
+### 🏆 Càlcul de Puntuació Final
+
+- Calculadora automàtica de puntuacions per a cada jugador, incloent punts per cada component del joc base i de les expansions (or, temples, fitxes de Sol, màscares de mines, etc.).
+- Determinació automàtica del guanyador, amb una opció per consultar un resum detallat de la puntuació de cada jugador.
+
+### ⚙️ Configuració Personalitzable
+
+- Personalitza l'experiència de joc amb opcions de so, vibració, selecció d'idioma i configuracions visuals.
+- Selecciona quines expansions tens disponibles per desactivar-les fàcilment en la configuració de partida.
+
+### 🌐 Suport Multiidioma
+
+- Interfície d'usuari disponible en diversos idiomes (català, espanyol, anglès, i més en futures actualitzacions).
+
+### 🗂 Base de Dades de Llosetes
+
+- Accedeix a una base de dades completa de les llosetes del joc base i les expansions, amb filtres per facilitar la cerca.
+
+### 🚀 Futures Actualitzacions (Planned Features)
+
+- Suport per a noves expansions i plataformes addicionals (iOS, escriptori).
+- Historial de partides per reviure cada sessió de joc.
+- Possibilitat de guardar configuracions personalitzades de partida i de sincronitzar partides amb BoardGameGeek (BGG).
 
 ## Prerequisits
 
