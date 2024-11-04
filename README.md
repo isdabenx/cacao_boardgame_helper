@@ -134,37 +134,35 @@ project_name
    │     └─ analytics_service.dart
    │
    ├─ features                  # Funcionalitats de l'aplicació
-   │  ├─ feature_name           # Exemple d'una feature
-   │  │  ├─ data                # Capa de dades de la feature
-   │  │  │  ├─ models           # Models de dades per transferència
-   │  │  │  │  └─ example_dto.dart
-   │  │  │  ├─ repositories     # Implementacions de repositoris
-   │  │  │  │  └─ example_repository_impl.dart
-   │  │  │  └─ data_sources     # Fonts de dades (API, local, etc.)
-   │  │  │     └─ example_api_data_source.dart
-   │  │  ├─ domain              # Capa de domini (negoci) de la feature
-   │  │  │  ├─ entities         # Entitats de domini
-   │  │  │  │  └─ example_entity.dart
-   │  │  │  ├─ repositories     # Interfícies dels repositoris
-   │  │  │  │  └─ example_repository.dart
-   │  │  │  └─ use_cases        # Casos d'ús de la feature
-   │  │  │     └─ get_example_use_case.dart
-   │  │  ├─ presentation        # Capa de presentació de la feature
-   │  │  │  ├─ providers        # Gestió d'estat per la UI
-   │  │  │  │  └─ example_provider.dart
-   │  │  │  ├─ screens          # Pantalles principals
-   │  │  │  │  └─ example_screen.dart
-   │  │  │  └─ widgets          # Widgets i components específics de la UI
-   │  │  │     └─ example_widget.dart
-   │  │  └─ tests               # Tests modulars per la feature
-   │  │     ├─ example_use_case_test.dart
-   │  │     └─ example_screen_test.dart
-   │  │
-   │  └─ another_feature        # Un altre exemple de feature
-   │     ├─ data
-   │     ├─ domain
-   │     ├─ presentation
-   │     └─ tests
+   │  └─ feature_name           # Exemple d'una feature
+   │     ├─ data                # Capa de dades de la feature
+   │     │  ├─ models           # Models de dades per transferència
+   │     │  │  └─ example_dto.dart
+   │     │  ├─ repositories     # Implementacions de repositoris
+   │     │  │  └─ example_repository_impl.dart
+   │     │  └─ data_sources     # Fonts de dades (API, local, etc.)
+   │     │     └─ example_api_data_source.dart
+   │     ├─ domain              # Capa de domini (negoci) de la feature
+   │     │  ├─ entities         # Entitats de domini
+   │     │  │  └─ example_entity.dart
+   │     │  ├─ repositories     # Interfícies dels repositoris
+   │     │  │  └─ example_repository.dart
+   │     │  └─ use_cases        # Casos d'ús de la feature
+   │     │     └─ get_example_use_case.dart
+   │     ├─ presentation        # Capa de presentació de la feature
+   │     │  ├─ providers        # Gestió d'estat per la UI
+   │     │  │  └─ example_provider.dart
+   │     │  ├─ screens          # Pantalles principals
+   │     │  │  └─ example_screen.dart
+   │     │  └─ widgets          # Widgets i components específics de la UI
+   │     │     └─ example_widget.dart
+   │     └─ tests               # Tests modulars per la feature
+   │        ├─ example_use_case_test.dart
+   │        └─ example_screen_test.dart
+   │
+   ├─ shared                    # Components compartits i reutilitzables
+   │  └─ widgets                # Widgets compartits a tota l'aplicació
+   │     └─ menu_widget.dart
    │
    └─ main.dart                 # Punt d'entrada de l'aplicació
 
