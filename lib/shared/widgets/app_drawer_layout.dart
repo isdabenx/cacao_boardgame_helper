@@ -12,7 +12,9 @@ class AppDrawerLayout extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final drawerController = ref.watch(menuControllerProvider);
+    final drawerController = ref.watch(
+      menuControllerProvider,
+    );
     return ZoomDrawer(
       controller: drawerController,
       menuScreen: MenuWidget(),
