@@ -1,14 +1,25 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class MenuControllerNotifier extends StateNotifier<ZoomDrawerController> {
-  MenuControllerNotifier() : super(ZoomDrawerController());
+class MenuControllerNotifier extends Notifier<ZoomDrawerController> {
+  @override
+  ZoomDrawerController build() {
+    return ZoomDrawerController();
+  }
 
   void toggle() {
     state.toggle?.call();
   }
+
+  void open() {
+    state.open?.call();
+  }
+
+  void close() {
+    state.close?.call();
+  }
 }
 
 final menuControllerProvider =
-    StateNotifierProvider<MenuControllerNotifier, ZoomDrawerController>(
-        (ref) => MenuControllerNotifier());
+    NotifierProvider<MenuControllerNotifier, ZoomDrawerController>(
+        () => MenuControllerNotifier());
