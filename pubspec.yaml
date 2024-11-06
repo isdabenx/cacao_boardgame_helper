@@ -11,14 +11,27 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^2.6.1
   flutter_zoom_drawer: ^3.2.0
+  isar:
+    hosted: https://pub.isar-community.dev
+    version: 3.1.8
+  isar_flutter_libs:
+    hosted: https://pub.isar-community.dev
+    version: 3.1.8
+  path_provider: ^2.1.5
 
 dev_dependencies:
   ansicolor: ^2.0.3
+  build_runner: ^2.4.13
+  custom_lint: ^0.7.0
   dart_pre_commit: ^5.4.0
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
   git_hooks: ^1.0.1
+  isar_generator:
+    hosted: https://pub.isar-community.dev
+    version: 3.1.8
+  riverpod_lint: ^2.6.2
 
 flutter:
   uses-material-design: true
