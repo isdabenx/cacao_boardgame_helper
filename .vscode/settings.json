@@ -4,6 +4,7 @@
         "commit-validator",
         "menu",
         "database",
-        "assets"
+        "assets",
+        "tile"
     ]
 }
