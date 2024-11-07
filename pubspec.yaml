@@ -37,7 +37,17 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/tiles/
+    - assets/initial_data/
   fonts:
     - family: Burrito
       fonts:
         - asset: assets/fonts/burrito.ttf
+    - family: Agenda
+      fonts:
+        - asset: assets/fonts/agenda_boldcondensed.ttf
+          weight: 700
+        - asset: assets/fonts/agenda_lightcondensed.ttf
+          weight: 300
+        - asset: assets/fonts/agenda_mediumcondensed.ttf
+          weight: 500

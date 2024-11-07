@@ -6,6 +6,6 @@ class AppTextStyles {
   static const TextStyle loadingTextStyle = TextStyle(
     color: AppColors.white,
     fontSize: 44,
-    fontFamily: AppFonts.labelFont,
+    fontFamily: AppFonts.headerFont,
   );
 }

@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "splash",
         "commit-validator",
-        "menu"
+        "menu",
+        "database"
     ]
 }
