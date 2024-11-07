@@ -18,7 +18,7 @@ class TileListScreen extends ConsumerWidget {
                 final tile = tiles[index];
                 return ListTile(
                   title: Text(tile.name),
-                  subtitle: Text(tile.description),
+                  subtitle: Text(tile.boardgame.value?.name ?? 'No boardgame'),
                 );
               },
             ),

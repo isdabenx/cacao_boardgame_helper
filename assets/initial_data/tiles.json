@@ -1,0 +1,252 @@
+[
+    {
+        "id": 1,
+        "name": "1-1-1-1",
+        "description": "Worker tiles 1-1-1-1 for player red",
+        "filenameImage": "player_red_1-1-1-1.webp",
+        "type": "player",
+        "color": "red",
+        "quantity": 4,
+        "boardgame": 1
+    },
+    {
+        "id": 2,
+        "name": "2-1-0-1",
+        "description": "Worker tiles 2-1-0-1 for player red",
+        "filenameImage": "player_red_2-1-0-1.webp",
+        "type": "player",
+        "color": "red",
+        "quantity": 5,
+        "boardgame": 1
+    },
+    {
+        "id": 3,
+        "name": "3-0-0-1",
+        "description": "Worker tiles 3-0-0-1 for player red",
+        "filenameImage": "player_red_3-0-0-1.webp",
+        "type": "player",
+        "color": "red",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 4,
+        "name": "3-1-0-0",
+        "description": "Worker tiles 3-1-0-0 for player red",
+        "filenameImage": "player_red_3-1-0-0.webp",
+        "type": "player",
+        "color": "red",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 5,
+        "name": "1-1-1-1",
+        "description": "Worker tiles 1-1-1-1 for player purple",
+        "filenameImage": "player_purple_1-1-1-1.webp",
+        "type": "player",
+        "color": "purple",
+        "quantity": 4,
+        "boardgame": 1
+    },
+    {
+        "id": 6,
+        "name": "2-1-0-1",
+        "description": "Worker tiles 2-1-0-1 for player purple",
+        "filenameImage": "player_purple_2-1-0-1.webp",
+        "type": "player",
+        "color": "purple",
+        "quantity": 5,
+        "boardgame": 1
+    },
+    {
+        "id": 7,
+        "name": "3-0-0-1",
+        "description": "Worker tiles 3-0-0-1 for player purple",
+        "filenameImage": "player_purple_3-0-0-1.webp",
+        "type": "player",
+        "color": "purple",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 8,
+        "name": "3-1-0-0",
+        "description": "Worker tiles 3-1-0-0 for player purple",
+        "filenameImage": "player_purple_3-1-0-0.webp",
+        "type": "player",
+        "color": "purple",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 9,
+        "name": "1-1-1-1",
+        "description": "Worker tiles 1-1-1-1 for player white",
+        "filenameImage": "player_white_1-1-1-1.webp",
+        "type": "player",
+        "color": "white",
+        "quantity": 4,
+        "boardgame": 1
+    },
+    {
+        "id": 10,
+        "name": "2-1-0-1",
+        "description": "Worker tiles 2-1-0-1 for player white",
+        "filenameImage": "player_white_2-1-0-1.webp",
+        "type": "player",
+        "color": "white",
+        "quantity": 5,
+        "boardgame": 1
+    },
+    {
+        "id": 11,
+        "name": "3-0-0-1",
+        "description": "Worker tiles 3-0-0-1 for player white",
+        "filenameImage": "player_white_3-0-0-1.webp",
+        "type": "player",
+        "color": "white",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 12,
+        "name": "3-1-0-0",
+        "description": "Worker tiles 3-1-0-0 for player white",
+        "filenameImage": "player_white_3-1-0-0.webp",
+        "type": "player",
+        "color": "white",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 13,
+        "name": "1-1-1-1",
+        "description": "Worker tiles 1-1-1-1 for player yellow",
+        "filenameImage": "player_yellow_1-1-1-1.webp",
+        "type": "player",
+        "color": "yellow",
+        "quantity": 4,
+        "boardgame": 1
+    },
+    {
+        "id": 14,
+        "name": "2-1-0-1",
+        "description": "Worker tiles 2-1-0-1 for player yellow",
+        "filenameImage": "player_yellow_2-1-0-1.webp",
+        "type": "player",
+        "color": "yellow",
+        "quantity": 5,
+        "boardgame": 1
+    },
+    {
+        "id": 15,
+        "name": "3-0-0-1",
+        "description": "Worker tiles 3-0-0-1 for player yellow",
+        "filenameImage": "player_yellow_3-0-0-1.webp",
+        "type": "player",
+        "color": "yellow",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 16,
+        "name": "3-1-0-0",
+        "description": "Worker tiles 3-1-0-0 for player yellow",
+        "filenameImage": "player_yellow_3-1-0-0.webp",
+        "type": "player",
+        "color": "yellow",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 17,
+        "name": "Single Plantation",
+        "description": "",
+        "filenameImage": "single_plantation.webp",
+        "type": "plantation",
+        "quantity": 6,
+        "boardgame": 1
+    },
+    {
+        "id": 18,
+        "name": "Double Plantation",
+        "description": "",
+        "filenameImage": "double_plantation.webp",
+        "type": "plantation",
+        "quantity": 2,
+        "boardgame": 1
+    },
+    {
+        "id": 19,
+        "name": "Selling price 2",
+        "description": "",
+        "filenameImage": "selling_price_2.webp",
+        "type": "market",
+        "quantity": 2,
+        "boardgame": 1
+    },
+    {
+        "id": 20,
+        "name": "Selling price 3",
+        "description": "",
+        "filenameImage": "selling_price_3.webp",
+        "type": "market",
+        "quantity": 4,
+        "boardgame": 1
+    },
+    {
+        "id": 21,
+        "name": "Selling price 4",
+        "description": "",
+        "filenameImage": "selling_price_4.webp",
+        "type": "market",
+        "quantity": 1,
+        "boardgame": 1
+    },
+    {
+        "id": 22,
+        "name": "Value 1",
+        "description": "",
+        "filenameImage": "value_1.webp",
+        "type": "goldMine",
+        "quantity": 2,
+        "boardgame": 1
+    },
+    {
+        "id": 23,
+        "name": "Value 2",
+        "description": "",
+        "filenameImage": "value_2.webp",
+        "type": "goldMine",
+        "quantity": 2,
+        "boardgame": 1
+    },
+    {
+        "id": 24,
+        "name": "Water",
+        "description": "",
+        "filenameImage": "water.webp",
+        "type": "water",
+        "quantity": 3,
+        "boardgame": 1
+    },
+    {
+        "id": 25,
+        "name": "Sun-Worshiping Site",
+        "description": "",
+        "filenameImage": "sun_worshiping_site.webp",
+        "type": "sunWorshipingSite",
+        "quantity": 2,
+        "boardgame": 1
+    },
+    {
+        "id": 26,
+        "name": "Temple",
+        "description": "",
+        "filenameImage": "temple.webp",
+        "type": "temple",
+        "quantity": 5,
+        "boardgame": 1
+    }
+]

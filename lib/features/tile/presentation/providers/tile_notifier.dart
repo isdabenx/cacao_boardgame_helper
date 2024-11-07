@@ -24,16 +24,6 @@ class TileNotifier extends Notifier<List<TileModel>> {
     final List<TileModel> tiles = await _database!.tileModels.where().findAll();
     state = tiles;
   }
-
-  Future<void> addTile(TileModel tile) async {
-    if (_database == null) {
-      return;
-    }
-    await _database!.writeTxn(() async {
-      await _database!.tileModels.put(tile);
-    });
-    state = [...state, tile];
-  }
 }
 
 final tileNotifierProvider =
