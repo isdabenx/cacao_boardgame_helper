@@ -4,6 +4,7 @@ import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/providers/splash_provider.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/widgets/background_image_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -37,11 +38,13 @@ class SplashScreen extends ConsumerWidget {
       loading: () => _enableImmersiveMode(),
       error: (error, stackTrace) {
         _disableImmersiveMode();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error: $error'),
-          ),
-        );
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error: $error'),
+            ),
+          );
+        });
       },
     );
 

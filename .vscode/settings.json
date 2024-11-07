@@ -3,6 +3,7 @@
         "splash",
         "commit-validator",
         "menu",
-        "database"
+        "database",
+        "assets"
     ]
 }
