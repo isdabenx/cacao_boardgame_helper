@@ -21,25 +21,65 @@ class TileListScreen extends ConsumerWidget {
           itemBuilder: (context) {
             return [
               PopupMenuItem(
-                child: Text('Badge tile type in text'),
+                child: Row(
+                  children: [
+                    Text('Badge tile type in text'),
+                    Spacer(),
+                    Icon(
+                      ref.watch(tileSettingsNotifier).badgeTypeInText
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                  ],
+                ),
                 onTap: () => ref
                     .read(tileSettingsNotifier.notifier)
                     .toggleBadgeTypeInText(),
               ),
               PopupMenuItem(
-                child: Text('Badge tile type in image'),
+                child: Row(
+                  children: [
+                    Text('Badge tile type in image'),
+                    Spacer(),
+                    Icon(
+                      ref.watch(tileSettingsNotifier).badgeTypeInImage
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                  ],
+                ),
                 onTap: () => ref
                     .read(tileSettingsNotifier.notifier)
                     .toggleBadgeTypeInImage(),
               ),
               PopupMenuItem(
-                child: Text('Player color in border'),
+                child: Row(
+                  children: [
+                    Text('Player color in border'),
+                    Spacer(),
+                    Icon(
+                      ref.watch(tileSettingsNotifier).playerColorInBorder
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                  ],
+                ),
                 onTap: () => ref
                     .read(tileSettingsNotifier.notifier)
                     .togglePlayerColorInBorder(),
               ),
               PopupMenuItem(
-                child: Text('Player color cercle'),
+                child: Row(
+                  children: [
+                    Text('Player color cercle'),
+                    Spacer(),
+                    Icon(
+                      ref.watch(tileSettingsNotifier).playerColorInCercle
+                          ? Icons.check_box
+                          : Icons.check_box_outline_blank,
+                    ),
+                  ],
+                ),
                 onTap: () => ref
                     .read(tileSettingsNotifier.notifier)
                     .togglePlayerColorInCercle(),
