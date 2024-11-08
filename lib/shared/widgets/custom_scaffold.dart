@@ -6,8 +6,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class CustomScaffold extends ConsumerWidget {
   final Widget body;
   final String? title;
+  final List<Widget>? actions;
 
-  const CustomScaffold({super.key, required this.body, this.title});
+  const CustomScaffold({
+    super.key,
+    required this.body,
+    this.title,
+    this.actions,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,6 +21,7 @@ class CustomScaffold extends ConsumerWidget {
     return AppDrawerLayout(
         child: Scaffold(
       appBar: AppBar(
+        actions: actions,
         title: Text(title ?? ''),
         centerTitle: true,
         leading: IconButton(

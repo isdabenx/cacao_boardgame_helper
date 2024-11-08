@@ -1,4 +1,5 @@
 import 'package:cacao_boardgame_helper/features/tile/presentation/providers/tile_notifier.dart';
+import 'package:cacao_boardgame_helper/features/tile/presentation/providers/tile_settings_notifier.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/widgets/card_tile_widget.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
@@ -14,6 +15,39 @@ class TileListScreen extends ConsumerWidget {
 
     return CustomScaffold(
       title: 'Tiles',
+      actions: [
+        PopupMenuButton(
+          icon: Icon(Icons.settings),
+          itemBuilder: (context) {
+            return [
+              PopupMenuItem(
+                child: Text('Badge tile type in text'),
+                onTap: () => ref
+                    .read(tileSettingsNotifier.notifier)
+                    .toggleBadgeTypeInText(),
+              ),
+              PopupMenuItem(
+                child: Text('Badge tile type in image'),
+                onTap: () => ref
+                    .read(tileSettingsNotifier.notifier)
+                    .toggleBadgeTypeInImage(),
+              ),
+              PopupMenuItem(
+                child: Text('Player color in border'),
+                onTap: () => ref
+                    .read(tileSettingsNotifier.notifier)
+                    .togglePlayerColorInBorder(),
+              ),
+              PopupMenuItem(
+                child: Text('Player color cercle'),
+                onTap: () => ref
+                    .read(tileSettingsNotifier.notifier)
+                    .togglePlayerColorInCercle(),
+              ),
+            ];
+          },
+        ),
+      ],
       body: tiles.isEmpty
           ? Center(child: CircularProgressIndicator())
           : Padding(
