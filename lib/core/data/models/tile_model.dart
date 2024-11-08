@@ -40,6 +40,28 @@ class TileModel {
   @ignore
   int? boardgameId;
 
+  String get typeAsString {
+    if (type == null) return '';
+    switch (type) {
+      case TileType.player:
+        return 'Player';
+      case TileType.market:
+        return 'Market';
+      case TileType.plantation:
+        return 'Plantation';
+      case TileType.goldMine:
+        return 'Gold Mine';
+      case TileType.water:
+        return 'Water';
+      case TileType.temple:
+        return 'Temple';
+      case TileType.sunWorshipingSite:
+        return 'Sun-Worshiping Site';
+      default:
+        return '';
+    }
+  }
+
   TileModel({
     required this.id,
     required this.name,
