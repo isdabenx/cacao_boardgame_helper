@@ -1,3 +1,5 @@
+import 'package:cacao_boardgame_helper/config/constants/tile_settings.dart';
+
 class TileSettingsEntity {
   final bool playerColorInBorder;
   final bool playerColorInCercle;
@@ -27,5 +29,14 @@ class TileSettingsEntity {
       badgeTypeInText: badgeTypeInText ?? this.badgeTypeInText,
       boardgameInTitle: boardgameInTitle ?? this.boardgameInTitle,
     );
+  }
+
+  bool settings(String action) {
+    if (action == TileSettings.playerColorInBorder) return playerColorInBorder;
+    if (action == TileSettings.playerColorInCercle) return playerColorInCercle;
+    if (action == TileSettings.badgeTypeInImage) return badgeTypeInImage;
+    if (action == TileSettings.badgeTypeInText) return badgeTypeInText;
+    if (action == TileSettings.boardgameInTitle) return boardgameInTitle;
+    return false;
   }
 }

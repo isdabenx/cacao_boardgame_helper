@@ -1,3 +1,4 @@
+import 'package:cacao_boardgame_helper/config/constants/tile_settings.dart';
 import 'package:cacao_boardgame_helper/features/tile/domain/entities/tile_settings_entity.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -58,6 +59,14 @@ class TileSettingsNotifier extends Notifier<TileSettingsEntity> {
     await prefs.setBool('badgeTypeInImage', state.badgeTypeInImage);
     await prefs.setBool('badgeTypeInText', state.badgeTypeInText);
     await prefs.setBool('boardgameInTitle', state.boardgameInTitle);
+  }
+
+  void toggleSettings(String action) {
+    if (action == TileSettings.playerColorInBorder) togglePlayerColorInBorder();
+    if (action == TileSettings.playerColorInCercle) togglePlayerColorInCercle();
+    if (action == TileSettings.badgeTypeInImage) toggleBadgeTypeInImage();
+    if (action == TileSettings.badgeTypeInText) toggleBadgeTypeInText();
+    if (action == TileSettings.boardgameInTitle) toggleBoardgameInTitle();
   }
 }
 
