@@ -18,7 +18,9 @@ dependencies:
   isar_flutter_libs:
     hosted: https://pub.isar-community.dev
     version: 3.1.8
+  modal_bottom_sheet: ^3.0.0
   path_provider: ^2.1.5
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
   ansicolor: ^2.0.3

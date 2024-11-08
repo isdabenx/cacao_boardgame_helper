@@ -73,22 +73,24 @@ class CardTileWidget extends ConsumerWidget {
                 )
             ],
           ),
-          Center(
-            child: Text(
-              tile.boardgame.value!.name.toUpperCase(),
-              style: AppTextStyles.loadingTextStyle.copyWith(
-                fontSize: 18.0,
-                color: Colors.green,
+          if (tileSettings.boardgameInTitle)
+            Center(
+              child: Text(
+                tile.boardgame.value!.name.toUpperCase(),
+                style: AppTextStyles.loadingTextStyle.copyWith(
+                  fontSize: 18.0,
+                  color: Colors.green,
+                ),
               ),
             ),
-          ),
-          Divider(
-            height: 1,
-            color: (tileColor != null && tileSettings.playerColorInBorder)
-                ? tileColor
-                : Colors.grey,
-            thickness: 0.5,
-          ),
+          if (tileSettings.boardgameInTitle)
+            Divider(
+              height: 1,
+              color: (tileColor != null && tileSettings.playerColorInBorder)
+                  ? tileColor
+                  : Colors.grey,
+              thickness: 0.5,
+            ),
           if (tileSettings.badgeTypeInText || tileSettings.playerColorInCercle)
             Padding(
               padding: const EdgeInsets.only(

@@ -5,6 +5,7 @@ import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class TileListScreen extends ConsumerWidget {
   const TileListScreen({super.key});
@@ -16,75 +17,71 @@ class TileListScreen extends ConsumerWidget {
     return CustomScaffold(
       title: 'Tiles',
       actions: [
-        PopupMenuButton(
+        IconButton(
           icon: Icon(Icons.settings),
-          itemBuilder: (context) {
-            return [
-              PopupMenuItem(
-                child: Row(
-                  children: [
-                    Text('Badge tile type in text'),
-                    Spacer(),
-                    Icon(
-                      ref.watch(tileSettingsNotifier).badgeTypeInText
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                  ],
-                ),
-                onTap: () => ref
-                    .read(tileSettingsNotifier.notifier)
-                    .toggleBadgeTypeInText(),
-              ),
-              PopupMenuItem(
-                child: Row(
-                  children: [
-                    Text('Badge tile type in image'),
-                    Spacer(),
-                    Icon(
-                      ref.watch(tileSettingsNotifier).badgeTypeInImage
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                  ],
-                ),
-                onTap: () => ref
-                    .read(tileSettingsNotifier.notifier)
-                    .toggleBadgeTypeInImage(),
-              ),
-              PopupMenuItem(
-                child: Row(
-                  children: [
-                    Text('Player color in border'),
-                    Spacer(),
-                    Icon(
-                      ref.watch(tileSettingsNotifier).playerColorInBorder
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                  ],
-                ),
-                onTap: () => ref
-                    .read(tileSettingsNotifier.notifier)
-                    .togglePlayerColorInBorder(),
-              ),
-              PopupMenuItem(
-                child: Row(
-                  children: [
-                    Text('Player color cercle'),
-                    Spacer(),
-                    Icon(
-                      ref.watch(tileSettingsNotifier).playerColorInCercle
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                  ],
-                ),
-                onTap: () => ref
-                    .read(tileSettingsNotifier.notifier)
-                    .togglePlayerColorInCercle(),
-              ),
-            ];
+          onPressed: () {
+            showMaterialModalBottomSheet(
+              context: context,
+              builder: (context) {
+                return Consumer(
+                  builder: (context, ref, child) {
+                    final tileSettings = ref.watch(tileSettingsNotifier);
+                    return SafeArea(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CheckboxListTile(
+                            title: Text('Boardgame title'),
+                            value: tileSettings.boardgameInTitle,
+                            onChanged: (value) {
+                              ref
+                                  .read(tileSettingsNotifier.notifier)
+                                  .toggleBoardgameInTitle();
+                            },
+                          ),
+                          CheckboxListTile(
+                            title: Text('Badge tile type in text'),
+                            value: tileSettings.badgeTypeInText,
+                            onChanged: (value) {
+                              ref
+                                  .read(tileSettingsNotifier.notifier)
+                                  .toggleBadgeTypeInText();
+                            },
+                          ),
+                          CheckboxListTile(
+                            title: Text('Badge tile type in image'),
+                            value: tileSettings.badgeTypeInImage,
+                            onChanged: (value) {
+                              ref
+                                  .read(tileSettingsNotifier.notifier)
+                                  .toggleBadgeTypeInImage();
+                            },
+                          ),
+                          CheckboxListTile(
+                            title: Text('Player color in border'),
+                            value: tileSettings.playerColorInBorder,
+                            onChanged: (value) {
+                              ref
+                                  .read(tileSettingsNotifier.notifier)
+                                  .togglePlayerColorInBorder();
+                            },
+                          ),
+                          CheckboxListTile(
+                            title: Text('Player color in cercle'),
+                            value: tileSettings.playerColorInCercle,
+                            onChanged: (value) {
+                              ref
+                                  .read(tileSettingsNotifier.notifier)
+                                  .togglePlayerColorInCercle();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
+            );
           },
         ),
       ],
