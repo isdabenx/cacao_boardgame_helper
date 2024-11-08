@@ -1,5 +1,7 @@
 import 'package:cacao_boardgame_helper/features/tile/presentation/providers/tile_notifier.dart';
+import 'package:cacao_boardgame_helper/features/tile/presentation/widgets/card_tile_widget.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
+import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,29 +16,17 @@ class TileListScreen extends ConsumerWidget {
       title: 'Tiles',
       body: tiles.isEmpty
           ? Center(child: CircularProgressIndicator())
-          : GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DynamicHeightGridView(
                 crossAxisCount: 3,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+                itemCount: tiles.length,
+                builder: (context, index) {
+                  return CardTileWidget(tile: tiles[index]);
+                },
               ),
-              itemCount: tiles.length,
-              itemBuilder: (context, index) {
-                final tile = tiles[index];
-                return Card(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Image.asset(
-                          'assets/images/tiles/${tile.filenameImage}',
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Text(tile.name),
-                    ],
-                  ),
-                );
-              },
             ),
     );
   }
