@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color white = Colors.white;
-  static const Color menuBackground = Colors.green;
-  static const Color green = Colors.green;
-  static Color badgeBackground = Colors.greenAccent.shade400;
-  static const Color badgeText = Colors.white;
-  static const Color badgeTransparentBackground = Colors.greenAccent;
-  static const Color badgeTransparentText = Colors.black;
-  static Color tileBackground = Colors.greenAccent.shade100;
+  static const Color menuBackground = brown;
+  static const Color badgeBackground = greenDarker;
+  static const Color badgeText = gold;
+  static const Color badgeTransparentBackground = brown;
+  static const Color badgeTransparentText = gold;
+  static const Color tileBackground = greenNormal;
   static const Color tileBorder = Colors.grey;
-  static Color tileShadow = Colors.grey.shade300;
+  static const Color tileShadow = brown;
+  static const Color appBarBackground = greenNormal;
+  static const Color iconColor = brown;
+
+  static const Color greenLight = Color(0xFFE7F3DE);
+  static const Color greenNormal = Color(0xFFC1DFAE);
+  static const Color greenDark = Color(0xFF63B944);
+  static const Color greenDarker = Color(0xFF35762C);
+  static const Color brown = Color(0xFF2C0801);
+  static const Color gold = Color(0xFFFFC20F);
+
+  static const Color white = Color(0xFFF8F3E6);
+  static const Color red = Color(0xFFEB1D2E);
+  static const Color purple = Color(0xFF773C93);
+  static const Color yellow = Color(0xFFFBC217);
+  static const Color black = Color(0xFF231F20);
 
   static final Map<String, Color> colors = {
     'white': white,
-    'red': Colors.red,
-    'purple': Colors.purple,
-    'yellow': Colors.yellow,
+    'red': red,
+    'purple': purple,
+    'yellow': yellow,
   };
 
   static Color findColorByName(String color) {

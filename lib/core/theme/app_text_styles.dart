@@ -3,14 +3,35 @@ import 'package:cacao_boardgame_helper/core/theme/app_fonts.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  static const TextStyle loadingTextStyle = TextStyle(
-    color: AppColors.white,
-    fontSize: 44,
+  static const double _offset = 0.7;
+  static const TextStyle _title = TextStyle(
     fontFamily: AppFonts.headerFont,
+    color: AppColors.brown,
+    shadows: [
+      Shadow(
+        offset: Offset(-_offset, -_offset),
+        color: AppColors.gold,
+      ),
+      Shadow(
+        offset: Offset(_offset, -_offset),
+        color: AppColors.gold,
+      ),
+      Shadow(
+        offset: Offset(_offset, _offset),
+        color: AppColors.gold,
+      ),
+      Shadow(
+        offset: Offset(-_offset, _offset),
+        color: AppColors.gold,
+      ),
+    ],
   );
 
+  static TextStyle loadingTextStyle = _title.copyWith(fontSize: 54);
+  static TextStyle appBarTextStyle = _title.copyWith(fontSize: 48);
+
   static const TextStyle boardgameTitleTextStyle = TextStyle(
-    color: AppColors.green,
+    color: AppColors.greenDarker,
     fontSize: 18,
     fontFamily: AppFonts.headerFont,
   );
@@ -19,6 +40,7 @@ class AppTextStyles {
     fontSize: 12,
     fontFamily: AppFonts.bodyFont,
     fontWeight: FontWeight.w700,
+    color: AppColors.badgeText,
   );
 
   static const TextStyle tileNameTextStyle = TextStyle(
@@ -31,5 +53,6 @@ class AppTextStyles {
     fontSize: 12,
     fontFamily: AppFonts.bodyFont,
     fontWeight: FontWeight.w500,
+    color: AppColors.badgeTransparentText,
   );
 }

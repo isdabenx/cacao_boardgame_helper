@@ -1,3 +1,4 @@
+import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/shared/providers/menu_controller_notifier.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/app_drawer_layout.dart';
 import 'package:flutter/material.dart';
@@ -19,19 +20,31 @@ class CustomScaffold extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final menuControllerNotifier = ref.watch(menuControllerProvider.notifier);
     return AppDrawerLayout(
-        child: Scaffold(
-      appBar: AppBar(
-        actions: actions,
-        title: Text(title ?? ''),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            menuControllerNotifier.toggle();
-          },
-          icon: Icon(Icons.menu),
+      child: Scaffold(
+        appBar: AppBar(
+          actions: actions,
+          title: Text(
+            title ?? '',
+          ),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              menuControllerNotifier.toggle();
+            },
+            icon: Icon(Icons.menu),
+          ),
         ),
+        body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                  Assets.background,
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: body),
       ),
-      body: body,
-    ));
+    );
   }
 }

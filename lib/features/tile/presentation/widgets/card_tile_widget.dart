@@ -56,7 +56,7 @@ Decoration _cardTileDecoration(Color borderColor) {
   return BoxDecoration(
     boxShadow: [
       BoxShadow(
-        color: AppColors.tileShadow,
+        color: AppColors.tileShadow.withOpacity(0.4),
         blurRadius: 4.0,
         spreadRadius: 2.0,
         offset: Offset(0, 2),

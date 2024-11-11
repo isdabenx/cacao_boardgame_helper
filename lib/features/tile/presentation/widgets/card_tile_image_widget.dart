@@ -32,7 +32,6 @@ class CardTileImageWidget extends StatelessWidget {
               opacity: 0.75,
               child: Badge(
                 backgroundColor: AppColors.badgeTransparentBackground,
-                textColor: AppColors.badgeTransparentText,
                 label: Padding(
                   padding: const EdgeInsets.all(1),
                   child: Text(
