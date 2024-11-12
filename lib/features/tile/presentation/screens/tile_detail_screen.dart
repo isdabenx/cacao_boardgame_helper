@@ -4,6 +4,7 @@ import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class TileDetailScreen extends StatelessWidget {
   const TileDetailScreen({super.key, required this.tile});
@@ -43,8 +44,16 @@ class TileDetailScreen extends StatelessWidget {
                   '${Assets.imagesTilePath}${tile.filenameImage}',
                 ),
               ),
+              SizedBox(height: 8.0),
               Text(tile.name, style: AppTextStyles.titleTextStyle),
-              Text(tile.description),
+              SizedBox(height: 8.0),
+              MarkdownBody(
+                data: tile.description,
+                styleSheet: MarkdownStyleSheet(
+                  strong: AppTextStyles.markdownBold,
+                  p: AppTextStyles.markdownBody,
+                ),
+              )
             ],
           ),
         ),

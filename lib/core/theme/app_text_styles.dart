@@ -56,4 +56,16 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.badgeTransparentText,
   );
+
+  static const TextStyle markdownBold = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontFamily: AppFonts.bodyFont,
+    fontSize: 18,
+  );
+
+  static const TextStyle markdownBody = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontFamily: AppFonts.bodyFont,
+    fontSize: 18,
+  );
 }
