@@ -44,13 +44,36 @@ class MenuWidget extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Home'),
+                    leading: Icon(
+                      Icons.home,
+                      color: AppColors.iconColor,
+                    ),
+                    title: Text(
+                      'Home',
+                      style: AppTextStyles.menu,
+                    ),
                     onTap: () => navigateTo(AppRoutes.home),
                   ),
                   ListTile(
-                    leading: Icon(Icons.line_style),
-                    title: Text('Tiles'),
+                    leading: Icon(
+                      Icons.library_books,
+                      color: AppColors.iconColor,
+                    ),
+                    title: Text(
+                      'Rules',
+                      style: AppTextStyles.menu,
+                    ),
+                    onTap: () => navigateTo(AppRoutes.rule),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.widgets,
+                      color: AppColors.iconColor,
+                    ),
+                    title: Text(
+                      'Tiles',
+                      style: AppTextStyles.menu,
+                    ),
                     onTap: () => navigateTo(AppRoutes.tile),
                   ),
                 ],

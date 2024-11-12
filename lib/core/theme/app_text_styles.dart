@@ -68,4 +68,10 @@ class AppTextStyles {
     fontFamily: AppFonts.bodyFont,
     fontSize: 18,
   );
+
+  static const TextStyle menu = TextStyle(
+    fontSize: 24,
+    fontFamily: AppFonts.headerFont,
+    color: AppColors.brown,
+  );
 }
