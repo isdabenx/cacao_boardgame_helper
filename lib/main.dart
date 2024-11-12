@@ -27,6 +27,7 @@ class MainApp extends StatelessWidget {
           )),
       initialRoute: AppRoutes.splash,
       routes: AppRoutes.routes,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }

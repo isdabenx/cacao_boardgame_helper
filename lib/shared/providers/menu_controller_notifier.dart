@@ -22,4 +22,5 @@ class MenuControllerNotifier extends Notifier<ZoomDrawerController> {
 
 final menuControllerProvider =
     NotifierProvider<MenuControllerNotifier, ZoomDrawerController>(
-        () => MenuControllerNotifier());
+  () => MenuControllerNotifier(),
+);

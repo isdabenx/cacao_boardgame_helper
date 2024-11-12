@@ -26,7 +26,16 @@ class TileListScreen extends ConsumerWidget {
                 mainAxisSpacing: 8.0,
                 itemCount: tiles.length,
                 builder: (context, index) {
-                  return CardTileWidget(tile: tiles[index]);
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/tile_detail',
+                        arguments: tiles[index],
+                      );
+                    },
+                    child: CardTileWidget(tile: tiles[index]),
+                  );
                 },
               ),
             ),

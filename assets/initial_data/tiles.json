@@ -180,7 +180,7 @@
     {
         "id": 19,
         "name": "Selling price 2",
-        "description": "",
+        "description": "For each of your activated workers on the adjacent edge of the tile, you may sell **1 cacao** fruit from your storage at the price indicated on the market. You put the cacao fruit back in the supply and then take **2 gold** from the bank.",
         "filenameImage": "selling_price_2.webp",
         "type": "market",
         "quantity": 2,

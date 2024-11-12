@@ -28,7 +28,8 @@ class AppTextStyles {
   );
 
   static TextStyle loadingTextStyle = _title.copyWith(fontSize: 54);
-  static TextStyle appBarTextStyle = _title.copyWith(fontSize: 48);
+  static TextStyle appBarTextStyle = _title.copyWith(fontSize: 36);
+  static TextStyle titleTextStyle = _title.copyWith(fontSize: 32);
 
   static const TextStyle boardgameTitleTextStyle = TextStyle(
     color: AppColors.greenDarker,

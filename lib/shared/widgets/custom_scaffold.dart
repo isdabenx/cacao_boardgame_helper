@@ -1,4 +1,5 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
+import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
 import 'package:cacao_boardgame_helper/shared/providers/menu_controller_notifier.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/app_drawer_layout.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +9,18 @@ class CustomScaffold extends ConsumerWidget {
   final Widget body;
   final String? title;
   final List<Widget>? actions;
+  final bool showBackButton;
 
   const CustomScaffold({
     super.key,
     required this.body,
     this.title,
     this.actions,
+    this.showBackButton = false,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuControllerNotifier = ref.watch(menuControllerProvider.notifier);
     return AppDrawerLayout(
       child: Scaffold(
         appBar: AppBar(
@@ -27,12 +29,20 @@ class CustomScaffold extends ConsumerWidget {
             title ?? '',
           ),
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              menuControllerNotifier.toggle();
-            },
-            icon: Icon(Icons.menu),
-          ),
+          leading: showBackButton
+              ? IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    // TODO: Implement back button. Issue with using Navigator.of(context).pop(), the menu not opening after pop, need to find a solution.
+                    Navigator.of(context).pushReplacementNamed(AppRoutes.tile);
+                  },
+                )
+              : IconButton(
+                  onPressed: () {
+                    ref.read(menuControllerProvider.notifier).open();
+                  },
+                  icon: Icon(Icons.menu),
+                ),
         ),
         body: Container(
             decoration: BoxDecoration(

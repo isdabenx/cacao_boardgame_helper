@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color menuBackground = brown;
+  static const Color menuBackground = greenLight;
   static const Color badgeBackground = greenDarker;
   static const Color badgeText = gold;
   static const Color badgeTransparentBackground = brown;

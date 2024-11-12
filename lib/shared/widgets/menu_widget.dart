@@ -24,7 +24,7 @@ class MenuWidget extends ConsumerWidget {
 
     void navigateTo(String route) {
       onTapped(
-        () => Navigator.of(context).pushNamed(route),
+        () => Navigator.of(context).pushReplacementNamed(route),
       );
     }
 
