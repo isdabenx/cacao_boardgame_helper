@@ -1,5 +1,5 @@
 import 'package:cacao_boardgame_helper/core/data/models/tile_model.dart';
-import 'package:cacao_boardgame_helper/features/home/preseentation/screens/home_screen.dart';
+import 'package:cacao_boardgame_helper/features/home/presentation/screens/home_screen.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/screens/splash_screen.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/screens/tile_detail_screen.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/screens/tile_list_screen.dart';
