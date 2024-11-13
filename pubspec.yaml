@@ -22,6 +22,7 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
   path_provider: ^2.1.5
   shared_preferences: ^2.3.3
+  syncfusion_flutter_pdfviewer: ^27.1.58
 
 dev_dependencies:
   ansicolor: ^2.0.3
@@ -43,7 +44,9 @@ flutter:
     - assets/images/
     - assets/images/tiles/
     - assets/images/tiles/description/
+    - assets/images/boardgames/
     - assets/initial_data/
+    - assets/rules/
   fonts:
     - family: Burrito
       fonts:
