@@ -1,15 +1,15 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
-import 'package:cacao_boardgame_helper/shared/widgets/app_drawer_layout.dart';
+import 'package:cacao_boardgame_helper/shared/widgets/main_menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class CustomScaffold extends StatelessWidget {
+class CustomScaffoldWidget extends StatelessWidget {
   final Widget body;
   final String? title;
   final List<Widget>? actions;
   final bool showBackButton;
 
-  CustomScaffold({
+  CustomScaffoldWidget({
     super.key,
     required this.body,
     this.title,
@@ -21,7 +21,7 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppDrawerLayout(
+    return MainMenuWidget(
       drawerController: drawerController,
       child: Scaffold(
         appBar: AppBar(

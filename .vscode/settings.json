@@ -5,6 +5,7 @@
         "menu",
         "database",
         "assets",
-        "tile"
+        "tile",
+        "rule"
     ]
 }

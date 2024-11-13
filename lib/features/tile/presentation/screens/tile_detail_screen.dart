@@ -4,7 +4,7 @@ import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_markdown_style_sheet.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/container_full_style_widget.dart';
-import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
+import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +16,7 @@ class TileDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return CustomScaffold(
+    return CustomScaffoldWidget(
       showBackButton: true,
       title: tile.typeAsString,
       body: ContainerFullStyleWidget(

@@ -3,11 +3,11 @@ import 'package:cacao_boardgame_helper/shared/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class AppDrawerLayout extends StatelessWidget {
+class MainMenuWidget extends StatelessWidget {
   final Scaffold child;
   final ZoomDrawerController drawerController;
 
-  const AppDrawerLayout({
+  const MainMenuWidget({
     super.key,
     required this.child,
     required this.drawerController,

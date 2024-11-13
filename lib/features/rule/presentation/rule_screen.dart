@@ -3,7 +3,7 @@ import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/features/rule/presentation/rule_pdf_screen.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/container_full_style_widget.dart';
-import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
+import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold_widget.dart';
 import 'package:flutter/material.dart';
 
 class RuleScreen extends StatelessWidget {
@@ -11,7 +11,7 @@ class RuleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return CustomScaffoldWidget(
       title: 'Rules',
       body: ContainerFullStyleWidget(
         child: Column(

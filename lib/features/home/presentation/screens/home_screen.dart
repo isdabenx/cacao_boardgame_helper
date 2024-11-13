@@ -1,4 +1,4 @@
-import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold.dart';
+import 'package:cacao_boardgame_helper/shared/widgets/custom_scaffold_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
+    return CustomScaffoldWidget(
       title: 'Home',
       body: Center(
         child: Text('Home Screen'),
