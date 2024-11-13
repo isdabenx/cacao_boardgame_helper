@@ -1,17 +1,15 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
-import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
-import 'package:cacao_boardgame_helper/shared/providers/menu_controller_notifier.dart';
 import 'package:cacao_boardgame_helper/shared/widgets/app_drawer_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class CustomScaffold extends ConsumerWidget {
+class CustomScaffold extends StatelessWidget {
   final Widget body;
   final String? title;
   final List<Widget>? actions;
   final bool showBackButton;
 
-  const CustomScaffold({
+  CustomScaffold({
     super.key,
     required this.body,
     this.title,
@@ -19,9 +17,12 @@ class CustomScaffold extends ConsumerWidget {
     this.showBackButton = false,
   });
 
+  final ZoomDrawerController drawerController = ZoomDrawerController();
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return AppDrawerLayout(
+      drawerController: drawerController,
       child: Scaffold(
         appBar: AppBar(
           actions: actions,
@@ -30,16 +31,10 @@ class CustomScaffold extends ConsumerWidget {
           ),
           centerTitle: true,
           leading: showBackButton
-              ? IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    // TODO: Implement back button. Issue with using Navigator.of(context).pop(), the menu not opening after pop, need to find a solution.
-                    Navigator.of(context).pushReplacementNamed(AppRoutes.tile);
-                  },
-                )
+              ? null
               : IconButton(
                   onPressed: () {
-                    ref.read(menuControllerProvider.notifier).open();
+                    drawerController.open?.call();
                   },
                   icon: Icon(Icons.menu),
                 ),

@@ -1,19 +1,15 @@
 import 'package:cacao_boardgame_helper/config/routes/app_routes.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
-import 'package:cacao_boardgame_helper/shared/providers/menu_controller_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class MenuWidget extends ConsumerWidget {
-  const MenuWidget({super.key});
+class MenuWidget extends StatelessWidget {
+  const MenuWidget({super.key, required this.drawerController});
+  final ZoomDrawerController drawerController;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final drawerController = ref.watch(
-      menuControllerProvider,
-    );
-
+  Widget build(BuildContext context) {
     void onTapped(Function action) {
       drawerController.close!();
       Future.delayed(
