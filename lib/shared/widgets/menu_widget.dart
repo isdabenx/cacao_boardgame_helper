@@ -8,22 +8,28 @@ class MenuWidget extends StatelessWidget {
   const MenuWidget({super.key, required this.drawerController});
   final ZoomDrawerController drawerController;
 
+  void _onTapped(Function action) {
+    drawerController.close!();
+    Future.delayed(Duration(milliseconds: 250), () => action());
+  }
+
+  void _navigateTo(BuildContext context, String route) {
+    _onTapped(
+      () => Navigator.of(context).pushReplacementNamed(route),
+    );
+  }
+
+  Widget _menuItem(
+      BuildContext context, IconData icon, String title, String route) {
+    return ListTile(
+      leading: Icon(icon, color: AppColors.iconColor),
+      title: Text(title, style: AppTextStyles.menu),
+      onTap: () => _navigateTo(context, route),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void onTapped(Function action) {
-      drawerController.close!();
-      Future.delayed(
-        Duration(milliseconds: 250),
-        () => action(),
-      );
-    }
-
-    void navigateTo(String route) {
-      onTapped(
-        () => Navigator.of(context).pushReplacementNamed(route),
-      );
-    }
-
     return Scaffold(
       backgroundColor: AppColors.menuBackground,
       body: SafeArea(
@@ -39,39 +45,10 @@ class MenuWidget extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ListTile(
-                    leading: Icon(
-                      Icons.home,
-                      color: AppColors.iconColor,
-                    ),
-                    title: Text(
-                      'Home',
-                      style: AppTextStyles.menu,
-                    ),
-                    onTap: () => navigateTo(AppRoutes.home),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.library_books,
-                      color: AppColors.iconColor,
-                    ),
-                    title: Text(
-                      'Rules',
-                      style: AppTextStyles.menu,
-                    ),
-                    onTap: () => navigateTo(AppRoutes.rule),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.widgets,
-                      color: AppColors.iconColor,
-                    ),
-                    title: Text(
-                      'Tiles',
-                      style: AppTextStyles.menu,
-                    ),
-                    onTap: () => navigateTo(AppRoutes.tile),
-                  ),
+                  _menuItem(context, Icons.home, 'Home', AppRoutes.home),
+                  _menuItem(
+                      context, Icons.library_books, 'Rules', AppRoutes.rule),
+                  _menuItem(context, Icons.widgets, 'Tiles', AppRoutes.tile),
                 ],
               ),
             ),

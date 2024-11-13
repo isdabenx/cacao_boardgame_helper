@@ -70,7 +70,7 @@ class AppTextStyles {
   );
 
   static const TextStyle menu = TextStyle(
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: AppFonts.headerFont,
     color: AppColors.brown,
   );
