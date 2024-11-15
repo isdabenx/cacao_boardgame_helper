@@ -3,13 +3,13 @@ import 'package:cacao_boardgame_helper/shared/widgets/main_menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class CustomScaffoldWidget extends StatelessWidget {
+class CustomScaffoldWidget extends StatefulWidget {
   final Widget body;
   final String? title;
   final List<Widget>? actions;
   final bool showBackButton;
 
-  CustomScaffoldWidget({
+  const CustomScaffoldWidget({
     super.key,
     required this.body,
     this.title,
@@ -17,6 +17,11 @@ class CustomScaffoldWidget extends StatelessWidget {
     this.showBackButton = false,
   });
 
+  @override
+  State<CustomScaffoldWidget> createState() => _CustomScaffoldWidgetState();
+}
+
+class _CustomScaffoldWidgetState extends State<CustomScaffoldWidget> {
   final ZoomDrawerController drawerController = ZoomDrawerController();
 
   @override
@@ -25,12 +30,12 @@ class CustomScaffoldWidget extends StatelessWidget {
       drawerController: drawerController,
       child: Scaffold(
         appBar: AppBar(
-          actions: actions,
+          actions: widget.actions,
           title: Text(
-            title ?? '',
+            widget.title ?? '',
           ),
           centerTitle: true,
-          leading: showBackButton
+          leading: widget.showBackButton
               ? null
               : IconButton(
                   onPressed: () {
@@ -48,7 +53,7 @@ class CustomScaffoldWidget extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: body),
+            child: widget.body),
       ),
     );
   }
