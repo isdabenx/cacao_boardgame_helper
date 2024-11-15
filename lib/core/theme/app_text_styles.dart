@@ -74,4 +74,11 @@ class AppTextStyles {
     fontFamily: AppFonts.headerFont,
     color: AppColors.brown,
   );
+
+  static const TextStyle labelStep = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    fontFamily: AppFonts.bodyFont,
+    color: AppColors.brown,
+  );
 }

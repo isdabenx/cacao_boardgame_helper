@@ -24,8 +24,9 @@ class RuleScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => RulePdfScreen(
-                        title: 'Instructions',
-                        pdfPath: 'assets/rules/rulesEN.pdf'),
+                      title: 'Instructions',
+                      pdfPath: Assets.ruleCacaoPdf,
+                    ),
                   ),
                 );
               },
@@ -60,8 +61,8 @@ class RuleScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => RulePdfScreen(
-                        title: 'Instructions',
-                        pdfPath: 'assets/rules/overviewTilesEN.pdf'),
+                        title: 'Overview',
+                        pdfPath: Assets.ruleCacaoOverviewPdf),
                   ),
                 );
               },
