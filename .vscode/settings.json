@@ -6,6 +6,7 @@
         "database",
         "assets",
         "tile",
-        "rule"
+        "rule",
+        "game_setup"
     ]
 }
