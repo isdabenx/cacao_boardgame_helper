@@ -16,7 +16,7 @@ class InitializationRepositoryImpl implements InitializationRepository {
   Future<void> initialize() async {
     await _initializeDatabase();
     await _poblateDatabase();
-    await Future.delayed(Duration(seconds: 3));
+    // await Future.delayed(Duration(seconds: 3));
   }
 
   @override

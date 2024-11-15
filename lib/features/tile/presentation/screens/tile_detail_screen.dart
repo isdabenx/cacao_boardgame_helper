@@ -27,7 +27,10 @@ class TileDetailScreen extends ConsumerWidget {
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: AppColors.tileBorder,
+                    color: tile.color == null
+                        ? AppColors.tileBorder
+                        : AppColors.findColorByName(
+                            tile.color.toString().split('.').last),
                     width: 4.0,
                   ),
                 ),

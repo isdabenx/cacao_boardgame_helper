@@ -47,8 +47,10 @@ class MenuWidget extends StatelessWidget {
                 children: [
                   _menuItem(context, Icons.home, 'Home', AppRoutes.home),
                   _menuItem(
-                      context, Icons.library_books, 'Rules', AppRoutes.rule),
+                      context, Icons.group, 'Game setup', AppRoutes.gameSetup),
                   _menuItem(context, Icons.widgets, 'Tiles', AppRoutes.tile),
+                  _menuItem(
+                      context, Icons.library_books, 'Rules', AppRoutes.rule),
                 ],
               ),
             ),
