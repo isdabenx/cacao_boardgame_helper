@@ -64,7 +64,7 @@ class AppTextStyles {
   );
 
   static const TextStyle markdownBody = TextStyle(
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.normal,
     fontFamily: AppFonts.bodyFont,
     fontSize: 18,
   );

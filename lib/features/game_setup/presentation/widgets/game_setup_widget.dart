@@ -5,17 +5,18 @@ import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_expansion_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_module_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class GameSetupWidget extends StatefulWidget {
+class GameSetupWidget extends ConsumerStatefulWidget {
   const GameSetupWidget({super.key});
 
   @override
-  State<GameSetupWidget> createState() => _GameSetupWidgetState();
+  ConsumerState<GameSetupWidget> createState() => _GameSetupWidgetState();
 }
 
 // List<Step> steps = ;
 
-class _GameSetupWidgetState extends State<GameSetupWidget> {
+class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
   int _currentStep = 0;
 
   void _onStepTapped(int step) {
@@ -44,10 +45,10 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
                     children: [
                       Text(
                           'Select colors for each player and enter the name. Minimum 2 players'),
-                      PlayerRowWidget(color: AppColors.white),
-                      PlayerRowWidget(color: AppColors.red),
-                      PlayerRowWidget(color: AppColors.purple),
-                      PlayerRowWidget(color: AppColors.yellow),
+                      PlayerRowWidget(colorString: 'white'),
+                      PlayerRowWidget(colorString: 'red'),
+                      PlayerRowWidget(colorString: 'purple'),
+                      PlayerRowWidget(colorString: 'yellow'),
                     ],
                   ),
                 ),
