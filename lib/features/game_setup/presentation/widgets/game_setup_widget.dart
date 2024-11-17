@@ -46,7 +46,7 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
                   content: StepPlayerWidget(),
                 ),
                 Step(
-                  title: Text('Expansions (in construction)',
+                  title: Text('Expansions (work in progress)',
                       style: AppTextStyles.labelStep),
                   content: StepExpansionWidget(
                     heightAllExpansions: heightAllExpansions,
@@ -56,7 +56,7 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
                 ),
                 Step(
                   title: const Text(
-                    'Modules (in construction)',
+                    'Modules (work in progress)',
                     style: AppTextStyles.labelStep,
                   ),
                   content: StepModuleWidget(),
