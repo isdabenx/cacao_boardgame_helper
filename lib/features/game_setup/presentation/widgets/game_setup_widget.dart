@@ -1,23 +1,22 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
-import 'package:cacao_boardgame_helper/features/game_setup/presentation/providers/game_setup_notifier.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/player_row_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_expansion_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_module_widget.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/start_button_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class GameSetupWidget extends ConsumerStatefulWidget {
+class GameSetupWidget extends StatefulWidget {
   const GameSetupWidget({super.key});
 
   @override
-  ConsumerState<GameSetupWidget> createState() => _GameSetupWidgetState();
+  State<GameSetupWidget> createState() => _GameSetupWidgetState();
 }
 
 // List<Step> steps = ;
 
-class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
+class _GameSetupWidgetState extends State<GameSetupWidget> {
   int _currentStep = 0;
 
   void _onStepTapped(int step) {
@@ -28,9 +27,6 @@ class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final gameSetupState = ref.watch(gameSetupProvider);
-    final bool isStartButtonEnabled = gameSetupState.players.length >= 2;
-
     return Column(
       children: [
         Expanded(
@@ -113,20 +109,7 @@ class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
             ),
           ),
         ),
-        ElevatedButton(
-          onPressed: isStartButtonEnabled ? () {} : null,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FittedBox(
-                child: const Text(
-                  'Start Game',
-                  style: AppTextStyles.boardgameTitleTextStyle,
-                ),
-              ),
-            ],
-          ),
-        ),
+        StartButtonWidget(),
       ],
     );
   }
