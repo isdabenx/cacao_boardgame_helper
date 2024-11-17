@@ -18,10 +18,12 @@ class PlayerRowWidget extends ConsumerStatefulWidget {
 
 class _PlayerRowWidgetState extends ConsumerState<PlayerRowWidget> {
   final TextEditingController controller = TextEditingController();
+  final FocusNode focusNode = FocusNode();
 
   @override
   void dispose() {
     controller.dispose();
+    focusNode.dispose();
     super.dispose();
   }
 
@@ -47,6 +49,7 @@ class _PlayerRowWidgetState extends ConsumerState<PlayerRowWidget> {
         gameSetupNotifier.updatePlayerSelection(widget.colorString, isSelected);
         if (isSelected) {
           gameSetupNotifier.addPlayer(controller.text, widget.colorString);
+          focusNode.requestFocus();
         } else {
           gameSetupNotifier.removePlayer(player.name);
         }
@@ -58,6 +61,10 @@ class _PlayerRowWidgetState extends ConsumerState<PlayerRowWidget> {
         gameSetupNotifier.removePlayer(player.name);
         gameSetupNotifier.addPlayer(name, widget.colorString);
       }
+    }
+
+    void clearTextField() {
+      controller.clear();
     }
 
     return Row(
@@ -88,9 +95,16 @@ class _PlayerRowWidgetState extends ConsumerState<PlayerRowWidget> {
             child: TextField(
               decoration: InputDecoration(
                 labelText: 'Player Name',
+                suffixIcon: controller.text.isNotEmpty
+                    ? IconButton(
+                        onPressed: clearTextField,
+                        icon: Icon(Icons.clear),
+                      )
+                    : null,
               ),
               controller: controller,
               onChanged: onPlayerNameChanged,
+              focusNode: focusNode,
             ),
           ),
         ),
