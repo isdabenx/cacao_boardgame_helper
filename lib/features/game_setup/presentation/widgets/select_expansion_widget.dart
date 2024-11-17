@@ -1,33 +1,27 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
+import 'package:cacao_boardgame_helper/core/data/models/boardgame_model.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/providers/game_setup_notifier.dart';
-import 'package:cacao_boardgame_helper/shared/providers/boardgame_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SelectExpansionWidget extends ConsumerWidget {
   const SelectExpansionWidget({
     super.key,
-    required this.gameboardId,
+    required this.boardgame,
     required this.width,
     required this.height,
   });
 
   final double width;
   final double height;
-  final int gameboardId;
+  final BoardgameModel boardgame;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final gameSetupState = ref.watch(gameSetupProvider);
     final gameSetupNotifier = ref.read(gameSetupProvider.notifier);
-    final boardgameNotifier = ref.read(boardgameNotifierProvider.notifier);
-
-    final boardgame = gameSetupState.expansions.firstWhere(
-        (e) => e.id == gameboardId,
-        orElse: () => boardgameNotifier.boardgameById(gameboardId));
-
     final isSelected =
-        gameSetupState.expansions.any((e) => e.id == gameboardId);
+        gameSetupState.expansions.any((e) => e.id == boardgame.id);
 
     void onToggleExpansion() {
       gameSetupNotifier.toggleExpansion(boardgame);
