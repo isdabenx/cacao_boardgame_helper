@@ -25,4 +25,21 @@ class BoardgameModel {
       filenameImage: json['filenameImage'],
     );
   }
+
+  BoardgameModel copyWith({
+    Id? id,
+    String? name,
+    String? description,
+    String? filenameImage,
+    IsarLink<BoardgameModel>? require,
+  }) {
+    final newModel = BoardgameModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      filenameImage: filenameImage ?? this.filenameImage,
+    );
+    newModel.require.value = require?.value ?? this.require.value;
+    return newModel;
+  }
 }

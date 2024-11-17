@@ -12,10 +12,6 @@ class Assets {
   static const String boardgamesJson = 'assets/initial_data/boardgames.json';
 
   static const String boardgameCacao = '${imagesBoardgamePath}cacao.webp';
-  static const String boardgameChocolatl =
-      '${imagesBoardgamePath}cacao_chocolatl.jpg';
-  static const String boardgameDiamante =
-      '${imagesBoardgamePath}cacao_diamante.webp';
 
   static const String ruleCacaoPdf = 'assets/rules/cacao_rules_en.pdf';
   static const String ruleCacaoOverviewPdf =

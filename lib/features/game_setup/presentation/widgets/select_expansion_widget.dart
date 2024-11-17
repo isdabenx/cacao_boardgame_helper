@@ -1,48 +1,69 @@
+import 'package:cacao_boardgame_helper/config/constants/assets.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/providers/game_setup_notifier.dart';
+import 'package:cacao_boardgame_helper/shared/providers/boardgame_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SelectExpansionWidget extends StatefulWidget {
+class SelectExpansionWidget extends ConsumerWidget {
   const SelectExpansionWidget({
     super.key,
-    required this.image,
+    required this.gameboardId,
+    required this.width,
+    required this.height,
   });
 
-  final String image;
+  final double width;
+  final double height;
+  final int gameboardId;
 
   @override
-  State<SelectExpansionWidget> createState() => _SelectExpansionWidgetState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gameSetupState = ref.watch(gameSetupProvider);
+    final gameSetupNotifier = ref.read(gameSetupProvider.notifier);
+    final boardgameNotifier = ref.read(boardgameNotifierProvider.notifier);
 
-class _SelectExpansionWidgetState extends State<SelectExpansionWidget> {
-  bool _isSelected = false;
+    final boardgame = gameSetupState.expansions.firstWhere(
+        (e) => e.id == gameboardId,
+        orElse: () => boardgameNotifier.boardgameById(gameboardId));
 
-  void _onToggleExpansion() {
-    setState(() {
-      _isSelected = !_isSelected;
-    });
-  }
+    final isSelected =
+        gameSetupState.expansions.any((e) => e.id == gameboardId);
 
-  @override
-  Widget build(BuildContext context) {
+    void onToggleExpansion() {
+      gameSetupNotifier.toggleExpansion(boardgame);
+    }
+
     return GestureDetector(
-      onTap: _onToggleExpansion,
-      child: Container(
-        width: 80,
-        height: 100,
-        margin: EdgeInsets.symmetric(horizontal: 5.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          border: Border.all(
-            color: Colors.transparent,
-            width: 2.0,
+      onTap: onToggleExpansion,
+      child: Column(
+        children: [
+          Container(
+            width: width,
+            height: height,
+            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(
+                color: Colors.transparent,
+                width: 2.0,
+              ),
+              image: DecorationImage(
+                image: AssetImage(
+                    '${Assets.imagesBoardgamePath}${boardgame.filenameImage}'),
+                fit: BoxFit.cover,
+                colorFilter: isSelected
+                    ? null
+                    : ColorFilter.mode(Colors.grey, BlendMode.saturation),
+              ),
+            ),
           ),
-          image: DecorationImage(
-            image: AssetImage(widget.image),
-            fit: BoxFit.cover,
-            colorFilter: _isSelected
-                ? null
-                : ColorFilter.mode(Colors.grey, BlendMode.saturation),
+          SizedBox(height: 4),
+          Text(
+            boardgame.name,
+            style: TextStyle(fontSize: 12),
+            textAlign: TextAlign.center,
           ),
-        ),
+        ],
       ),
     );
   }

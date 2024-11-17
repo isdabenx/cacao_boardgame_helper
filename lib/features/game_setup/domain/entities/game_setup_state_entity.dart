@@ -1,8 +1,9 @@
+import 'package:cacao_boardgame_helper/core/data/models/boardgame_model.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/player_entity.dart';
 
 class GameSetupStateEntity {
   final List<PlayerEntity> players;
-  final List<String> expansions;
+  final List<BoardgameModel> expansions;
   final List<String> modules;
 
   GameSetupStateEntity({
@@ -13,7 +14,7 @@ class GameSetupStateEntity {
 
   GameSetupStateEntity copyWith({
     List<PlayerEntity>? players,
-    List<String>? expansions,
+    List<BoardgameModel>? expansions,
     List<String>? modules,
   }) {
     return GameSetupStateEntity(

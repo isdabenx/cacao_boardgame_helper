@@ -1,3 +1,4 @@
+import 'package:cacao_boardgame_helper/core/data/models/boardgame_model.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/game_setup_state_entity.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/player_entity.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,13 +30,22 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
     );
   }
 
-  void addExpansion(String expansion) {
+  void addExpansion(BoardgameModel expansion) {
     state = state.copyWith(expansions: [...state.expansions, expansion]);
   }
 
-  void removeExpansion(String expansion) {
+  void removeExpansion(BoardgameModel expansion) {
     state = state.copyWith(
-        expansions: state.expansions.where((e) => e != expansion).toList());
+      expansions: state.expansions.where((e) => e.id != expansion.id).toList(),
+    );
+  }
+
+  void toggleExpansion(BoardgameModel expansion) {
+    if (state.expansions.any((e) => e.id == expansion.id)) {
+      removeExpansion(expansion);
+    } else {
+      addExpansion(expansion);
+    }
   }
 
   void addModule(String module) {

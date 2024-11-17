@@ -1,4 +1,3 @@
-import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/player_row_widget.dart';
@@ -27,6 +26,9 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final double heightAllExpansions = 200;
+    final double heightExpansion = heightAllExpansions - 18;
+    final double widthExpansion = heightExpansion * 0.72;
     return Column(
       children: [
         Expanded(
@@ -64,14 +66,20 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
                             Text("Select the expansions you're playing with"),
                       ),
                       SizedBox(
-                        height: 120,
+                        height: heightAllExpansions,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
                             SelectExpansionWidget(
-                                image: Assets.boardgameChocolatl),
+                              gameboardId: 2,
+                              height: heightExpansion,
+                              width: widthExpansion,
+                            ),
                             SelectExpansionWidget(
-                                image: Assets.boardgameDiamante),
+                              gameboardId: 3,
+                              height: heightExpansion,
+                              width: widthExpansion,
+                            ),
                           ],
                         ),
                       ),
