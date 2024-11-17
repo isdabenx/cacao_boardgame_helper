@@ -1,6 +1,7 @@
 import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/providers/game_setup_notifier.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/player_row_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_expansion_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_module_widget.dart';
@@ -27,6 +28,9 @@ class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final gameSetupState = ref.watch(gameSetupProvider);
+    final bool isStartButtonEnabled = gameSetupState.players.length >= 2;
+
     return Column(
       children: [
         Expanded(
@@ -110,7 +114,7 @@ class _GameSetupWidgetState extends ConsumerState<GameSetupWidget> {
           ),
         ),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: isStartButtonEnabled ? () {} : null,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
