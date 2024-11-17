@@ -1,29 +1,27 @@
+import 'package:cacao_boardgame_helper/core/data/models/module_model.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/providers/game_setup_notifier.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SelectModuleWidget extends StatefulWidget {
+class SelectModuleWidget extends ConsumerWidget {
   const SelectModuleWidget({
     super.key,
-    required this.title,
+    required this.module,
   });
 
-  final String title;
+  final ModuleModel module;
 
   @override
-  State<SelectModuleWidget> createState() => _SelectModuleWidgetState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gameSetupState = ref.read(gameSetupProvider);
+    final gameSetupNotifier = ref.read(gameSetupProvider.notifier);
+    final isSelected = gameSetupState.modules.any((e) => e.id == module.id);
 
-class _SelectModuleWidgetState extends State<SelectModuleWidget> {
-  bool _isSelected = false;
+    void onToggleModule() {
+      gameSetupNotifier.toggleModule(module);
+    }
 
-  void _onToggleModule() {
-    setState(() {
-      _isSelected = !_isSelected;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
@@ -31,14 +29,14 @@ class _SelectModuleWidgetState extends State<SelectModuleWidget> {
             style: ElevatedButton.styleFrom(
               foregroundColor: AppColors.brown,
               backgroundColor:
-                  _isSelected ? AppColors.greenDark : AppColors.greenNormal,
+                  isSelected ? AppColors.greenDark : AppColors.greenNormal,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-            onPressed: _onToggleModule,
-            child: Text(widget.title),
+            onPressed: onToggleModule,
+            child: Text(module.name),
           ),
         ),
       ],

@@ -1,8 +1,8 @@
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
-import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/select_module_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/start_button_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/step_expansion_widget.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/step_module_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/step_player_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -59,24 +59,7 @@ class _GameSetupWidgetState extends State<GameSetupWidget> {
                     'Modules (in construction)',
                     style: AppTextStyles.labelStep,
                   ),
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Select the modules you're playing with"),
-                      Column(
-                        children: [
-                          SelectModuleWidget(title: "Map Module"),
-                          SelectModuleWidget(title: "Watering Module"),
-                          SelectModuleWidget(title: "Chocolate Module"),
-                          SelectModuleWidget(title: "Hut Module"),
-                          SelectModuleWidget(title: "The Gem Mines"),
-                          SelectModuleWidget(title: "The Tree of Life"),
-                          SelectModuleWidget(title: "The Favor of the Emperor"),
-                          SelectModuleWidget(title: "The New Workers"),
-                        ],
-                      ),
-                    ],
-                  ),
+                  content: StepModuleWidget(),
                 ),
               ],
               controlsBuilder: (_, __) => Container(),

@@ -1,4 +1,5 @@
 import 'package:cacao_boardgame_helper/core/data/models/boardgame_model.dart';
+import 'package:cacao_boardgame_helper/core/data/models/module_model.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/game_setup_state_entity.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/player_entity.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,13 +49,22 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
     }
   }
 
-  void addModule(String module) {
+  void addModule(ModuleModel module) {
     state = state.copyWith(modules: [...state.modules, module]);
   }
 
-  void removeModule(String module) {
+  void removeModule(ModuleModel module) {
     state = state.copyWith(
-        modules: state.modules.where((m) => m != module).toList());
+      modules: state.modules.where((m) => m.id != module.id).toList(),
+    );
+  }
+
+  void toggleModule(ModuleModel module) {
+    if (state.modules.any((m) => m.id == module.id)) {
+      removeModule(module);
+    } else {
+      addModule(module);
+    }
   }
 }
 

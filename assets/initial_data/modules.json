@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Map Module",
+        "description": "",
+        "boardgame": 2
+    },
+    {
+        "id": 2,
+        "name": "Irrigation Module",
+        "description": "",
+        "boardgame": 2
+    },
+    {
+        "id": 3,
+        "name": "Chocolate Module",
+        "description": "",
+        "boardgame": 2
+    },
+    {
+        "id": 4,
+        "name": "Hut Module",
+        "description": "",
+        "boardgame": 2
+    },
+    {
+        "id": 5,
+        "name": "The Gem Mines",
+        "description": "",
+        "boardgame": 3
+    },
+    {
+        "id": 6,
+        "name": "The Tree of Life",
+        "description": "",
+        "boardgame": 3
+    },
+    {
+        "id": 7,
+        "name": "The Favor of the Emperor",
+        "description": "",
+        "boardgame": 3
+    },
+    {
+        "id": 8,
+        "name": "The New Workers",
+        "description": "",
+        "boardgame": 3
+    }
+]

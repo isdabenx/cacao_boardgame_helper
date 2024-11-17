@@ -1,3 +1,4 @@
+import 'package:cacao_boardgame_helper/core/data/models/module_model.dart';
 import 'package:isar/isar.dart';
 
 part 'boardgame_model.g.dart';
@@ -9,6 +10,9 @@ class BoardgameModel {
   final String description;
   final String filenameImage;
   final require = IsarLink<BoardgameModel>();
+
+  @Backlink(to: 'boardgame')
+  final modules = IsarLinks<ModuleModel>();
 
   BoardgameModel({
     required this.id,

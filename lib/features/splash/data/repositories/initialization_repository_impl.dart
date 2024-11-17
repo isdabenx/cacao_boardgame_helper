@@ -16,7 +16,6 @@ class InitializationRepositoryImpl implements InitializationRepository {
   Future<void> initialize() async {
     await _initializeDatabase();
     await _poblateDatabase();
-    // await Future.delayed(Duration(seconds: 3));
   }
 
   @override
@@ -42,6 +41,24 @@ class InitializationRepositoryImpl implements InitializationRepository {
 
     await _isar.writeTxn(() async {
       await _isar.boardgameModels.putAll(boardgames);
+    });
+
+    final String modulesJson = await rootBundle.loadString(Assets.modulesJson);
+    final List<dynamic> modulesData = json.decode(modulesJson);
+    final List<ModuleModel> modules = modulesData
+        .map((moduleData) => ModuleModel.fromJson(moduleData))
+        .toList();
+
+    await _isar.writeTxn(() async {
+      for (final module in modules) {
+        if (module.boardgameId != null) {
+          final boardgame =
+              await _isar.boardgameModels.get(module.boardgameId!);
+          module.boardgame.value = boardgame!;
+        }
+        await _isar.moduleModels.put(module);
+        await module.boardgame.save();
+      }
     });
 
     final String tilesJson = await rootBundle.loadString(Assets.tilesJson);

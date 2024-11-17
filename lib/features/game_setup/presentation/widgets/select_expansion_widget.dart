@@ -18,7 +18,7 @@ class SelectExpansionWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final gameSetupState = ref.watch(gameSetupProvider);
+    final gameSetupState = ref.read(gameSetupProvider);
     final gameSetupNotifier = ref.read(gameSetupProvider.notifier);
     final isSelected =
         gameSetupState.expansions.any((e) => e.id == boardgame.id);
