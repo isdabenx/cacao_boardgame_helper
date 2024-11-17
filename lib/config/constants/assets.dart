@@ -3,6 +3,7 @@ class Assets {
   static const double splashBackgroundWidth = 626;
   static const double splashBackgroundHeight = 902;
   static const String background = 'assets/images/background.webp';
+  static const String cacaoTile = 'assets/images/cacao_title.png';
 
   static const String imagesTilePath = 'assets/images/tiles/';
   static const String imagesBoardgamePath = 'assets/images/boardgames/';

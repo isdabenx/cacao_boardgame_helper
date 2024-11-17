@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class AppTextStyles {
   static const double _offset = 0.7;
   static const TextStyle _title = TextStyle(
+    letterSpacing: 2,
     fontFamily: AppFonts.headerFont,
     color: AppColors.brown,
     shadows: [
@@ -81,4 +82,6 @@ class AppTextStyles {
     fontFamily: AppFonts.bodyFont,
     color: AppColors.brown,
   );
+
+  static TextStyle markdownH2 = _title.copyWith(fontSize: 20);
 }
