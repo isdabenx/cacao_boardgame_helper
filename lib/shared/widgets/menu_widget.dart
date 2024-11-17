@@ -10,7 +10,7 @@ class MenuWidget extends StatelessWidget {
 
   void _onTapped(Function action) {
     drawerController.close!();
-    Future.delayed(Duration(milliseconds: 250), () => action());
+    Future.delayed(Duration(milliseconds: 240), () => action());
   }
 
   void _navigateTo(BuildContext context, String route) {
