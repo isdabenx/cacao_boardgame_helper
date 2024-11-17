@@ -17,7 +17,7 @@ class Assets {
   static const String boardgameDiamante =
       '${imagesBoardgamePath}cacao_diamante.webp';
 
-  static const String ruleCacaoPdf = 'assets/rules/cacao_rule_en.pdf';
+  static const String ruleCacaoPdf = 'assets/rules/cacao_rules_en.pdf';
   static const String ruleCacaoOverviewPdf =
       'assets/rules/cacao_overview_en.pdf';
 }
