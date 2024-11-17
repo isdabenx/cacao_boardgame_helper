@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
       '⚙️ Customizable Settings: Personalize the game experience.',
       '🌐 Multilingual Support: Interface available in multiple languages.',
       '🚀 Future Updates: Support for new expansions and more.',
+      '🔍 Tile Filtering: Filter tiles based on various criteria.',
     ];
 
     return CustomScaffoldWidget(
