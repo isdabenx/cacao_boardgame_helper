@@ -13,9 +13,9 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
     state = state.copyWith(players: [...state.players, player]);
   }
 
-  void removePlayer(String name) {
+  void removePlayer(String color) {
     state = state.copyWith(
-        players: state.players.where((p) => p.name != name).toList());
+        players: state.players.where((p) => p.color != color).toList());
   }
 
   void updatePlayerSelection(String color, bool isSelected) {

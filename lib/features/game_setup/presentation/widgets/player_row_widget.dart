@@ -51,20 +51,22 @@ class _PlayerRowWidgetState extends ConsumerState<PlayerRowWidget> {
           gameSetupNotifier.addPlayer(controller.text, widget.colorString);
           focusNode.requestFocus();
         } else {
-          gameSetupNotifier.removePlayer(player.name);
+          gameSetupNotifier.removePlayer(widget.colorString);
         }
       });
     }
 
     void onPlayerNameChanged(String name) {
       if (isSelected) {
-        gameSetupNotifier.removePlayer(player.name);
+        gameSetupNotifier.removePlayer(widget.colorString);
         gameSetupNotifier.addPlayer(name, widget.colorString);
       }
     }
 
     void clearTextField() {
       controller.clear();
+      onPlayerNameChanged('');
+      focusNode.requestFocus();
     }
 
     return Row(
