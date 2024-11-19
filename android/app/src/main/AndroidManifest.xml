@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="cacao_boardgame_helper"
+        android:label="Cacao Helper"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
