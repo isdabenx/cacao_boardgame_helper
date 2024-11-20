@@ -6,6 +6,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class StartButtonWidget extends ConsumerWidget {
   const StartButtonWidget({super.key});
 
+  void _onStartButtonPressed(BuildContext context, WidgetRef ref) {
+    ref.read(gameSetupProvider.notifier).startGame();
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final gameSetupState = ref.watch(gameSetupProvider);
@@ -15,7 +19,9 @@ class StartButtonWidget extends ConsumerWidget {
         2;
 
     return ElevatedButton(
-      onPressed: isStartButtonEnabled ? () {} : null,
+      onPressed: isStartButtonEnabled
+          ? () => _onStartButtonPressed(context, ref)
+          : null,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
