@@ -24,6 +24,17 @@ class TileNotifier extends Notifier<List<TileModel>> {
     final List<TileModel> tiles = _database!.tileModels.where().findAllSync();
     state = tiles;
   }
+
+  void filterByIds(List<Id> idsList) {
+    if (_database == null) {
+      return;
+    }
+    final List<TileModel> tiles = _database!.tileModels
+        .filter()
+        .anyOf(idsList, (t, id) => t.idEqualTo(id))
+        .findAllSync();
+    state = tiles;
+  }
 }
 
 final tileNotifierProvider =
