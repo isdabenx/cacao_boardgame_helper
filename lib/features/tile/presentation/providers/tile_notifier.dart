@@ -35,6 +35,10 @@ class TileNotifier extends Notifier<List<TileModel>> {
         .findAllSync();
     state = tiles;
   }
+
+  void pushTiles(List<TileModel> filteredTiles) {
+    state = filteredTiles;
+  }
 }
 
 final tileNotifierProvider =

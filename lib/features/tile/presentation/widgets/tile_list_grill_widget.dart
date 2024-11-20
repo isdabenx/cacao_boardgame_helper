@@ -22,9 +22,7 @@ class _TileListGrillWidgetState extends ConsumerState<TileListGrillWidget> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       if (widget.filteredTiles.isNotEmpty) {
-        ref
-            .read(tileNotifierProvider.notifier)
-            .filterByIds(widget.filteredTiles.map((e) => e.id).toList());
+        ref.read(tileNotifierProvider.notifier).pushTiles(widget.filteredTiles);
       } else {
         ref.read(tileNotifierProvider.notifier).loadTiles();
       }
