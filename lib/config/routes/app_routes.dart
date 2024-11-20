@@ -1,4 +1,6 @@
 import 'package:cacao_boardgame_helper/core/data/models/tile_model.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/game_setup_state_entity.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/presentation/screens/game_setup_detail_screen.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/screens/game_setup_screen.dart';
 import 'package:cacao_boardgame_helper/features/home/presentation/screens/home_screen.dart';
 import 'package:cacao_boardgame_helper/features/rule/presentation/rule_screen.dart';
@@ -14,6 +16,7 @@ class AppRoutes {
   static const String rule = '/rule';
   static const String tileDetail = '/tile_detail';
   static const String gameSetup = '/game_setup';
+  static const String gameSetupDetail = '/game_setup_detail';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => const SplashScreen(),
@@ -27,9 +30,12 @@ class AppRoutes {
     if (settings.name == tileDetail) {
       final tile = settings.arguments as TileModel;
       return MaterialPageRoute(
-        builder: (context) {
-          return TileDetailScreen(tile: tile);
-        },
+        builder: (context) => TileDetailScreen(tile: tile),
+      );
+    } else if (settings.name == gameSetupDetail) {
+      final gameSetup = settings.arguments as GameSetupStateEntity;
+      return MaterialPageRoute(
+        builder: (context) => GameSetupDetailScreen(gameSetup: gameSetup),
       );
     }
     return null;

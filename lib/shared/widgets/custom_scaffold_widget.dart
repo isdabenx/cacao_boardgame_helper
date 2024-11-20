@@ -8,6 +8,7 @@ class CustomScaffoldWidget extends StatefulWidget {
   final String? title;
   final List<Widget>? actions;
   final bool showBackButton;
+  final PreferredSizeWidget? appBarBottom;
 
   const CustomScaffoldWidget({
     super.key,
@@ -15,6 +16,7 @@ class CustomScaffoldWidget extends StatefulWidget {
     this.title,
     this.actions,
     this.showBackButton = false,
+    this.appBarBottom,
   });
 
   @override
@@ -30,6 +32,7 @@ class _CustomScaffoldWidgetState extends State<CustomScaffoldWidget> {
       drawerController: drawerController,
       child: Scaffold(
         appBar: AppBar(
+          bottom: widget.appBarBottom,
           actions: widget.actions,
           title: Text(
             widget.title ?? '',

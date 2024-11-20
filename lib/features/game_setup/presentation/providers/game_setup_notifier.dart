@@ -104,6 +104,10 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
       }).toList();
     }
 
+    state.expansions.where((e) => e.id == 1).forEach((e) {
+      tiles.addAll(e.tiles.where((t) => t.color == null));
+    });
+
     state = state.copyWith(players: players, modules: modules, tiles: tiles);
   }
 }
