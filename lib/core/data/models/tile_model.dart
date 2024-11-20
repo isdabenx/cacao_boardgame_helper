@@ -93,4 +93,31 @@ class TileModel {
       boardgameId: json['boardgame'],
     );
   }
+
+  TileModel copyWith({
+    Id? id,
+    String? name,
+    String? description,
+    String? filenameImage,
+    int? quantity,
+    TileType? type,
+    TileColor? color,
+    IsarLink<BoardgameModel>? boardgame,
+    IsarLink<ModuleModel>? module,
+    int? boardgameId,
+  }) {
+    final newModel = TileModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      filenameImage: filenameImage ?? this.filenameImage,
+      quantity: quantity ?? this.quantity,
+      type: type ?? this.type,
+      color: color ?? this.color,
+      boardgameId: boardgameId ?? this.boardgameId,
+    );
+    newModel.boardgame.value = boardgame?.value ?? this.boardgame.value;
+    newModel.module.value = module?.value ?? this.module.value;
+    return newModel;
+  }
 }

@@ -17,11 +17,11 @@ class TileNotifier extends Notifier<List<TileModel>> {
     loadTiles();
   }
 
-  Future<void> loadTiles() async {
+  void loadTiles() {
     if (_database == null) {
       return;
     }
-    final List<TileModel> tiles = await _database!.tileModels.where().findAll();
+    final List<TileModel> tiles = _database!.tileModels.where().findAllSync();
     state = tiles;
   }
 }

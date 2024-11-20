@@ -1,4 +1,5 @@
 import 'package:cacao_boardgame_helper/core/data/models/module_model.dart';
+import 'package:cacao_boardgame_helper/core/data/models/tile_model.dart';
 import 'package:isar/isar.dart';
 
 part 'boardgame_model.g.dart';
@@ -13,6 +14,9 @@ class BoardgameModel {
 
   @Backlink(to: 'boardgame')
   final modules = IsarLinks<ModuleModel>();
+
+  @Backlink(to: 'boardgame')
+  final tiles = IsarLinks<TileModel>();
 
   BoardgameModel({
     required this.id,

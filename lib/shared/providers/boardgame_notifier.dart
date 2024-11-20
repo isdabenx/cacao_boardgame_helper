@@ -8,13 +8,12 @@ class BoardgameNotifier extends Notifier<List<BoardgameModel>> {
 
   @override
   List<BoardgameModel> build() {
-    _initialize();
     return [];
   }
 
-  Future<void> _initialize() async {
+  Future<void> initialize() async {
     _database = await ref.watch(databaseProvider.future);
-    loadBoardgames();
+    await loadBoardgames();
   }
 
   Future<void> loadBoardgames() async {
