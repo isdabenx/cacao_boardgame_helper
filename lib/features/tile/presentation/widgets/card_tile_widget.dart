@@ -65,6 +65,7 @@ Decoration _cardTileDecoration(Color borderColor) {
     color: AppColors.tileBackground,
     border: Border.all(
       color: borderColor,
+      width: 2.0,
     ),
     borderRadius: BorderRadius.only(
       bottomLeft: Radius.circular(8.0),

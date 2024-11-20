@@ -37,8 +37,8 @@ class _TileListGrillWidgetState extends ConsumerState<TileListGrillWidget> {
 
     return DynamicHeightGridView(
       crossAxisCount: 3,
-      crossAxisSpacing: 8.0,
-      mainAxisSpacing: 8.0,
+      crossAxisSpacing: 6.0,
+      mainAxisSpacing: 6.0,
       itemCount: tiles.length,
       builder: (context, index) {
         return GestureDetector(

@@ -24,7 +24,7 @@ class CardTileBoardgameTitleWidget extends StatelessWidget {
         Divider(
           height: 1,
           color: color,
-          thickness: 0.5,
+          thickness: 0.75,
         ),
       ],
     );
