@@ -38,6 +38,10 @@ class SettingsIconWidget extends StatelessWidget {
                     title: 'Player color in cercle',
                     settingsName: TileSettings.playerColorInCercle,
                   ),
+                  SettingsItemWidget(
+                    title: 'Show quantity',
+                    settingsName: TileSettings.showQuantity,
+                  ),
                 ],
               ),
             );

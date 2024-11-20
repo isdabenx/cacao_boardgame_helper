@@ -6,6 +6,7 @@ class TileSettingsEntity {
   final bool badgeTypeInImage;
   final bool badgeTypeInText;
   final bool boardgameInTitle;
+  final bool showQuantity;
 
   TileSettingsEntity({
     this.playerColorInBorder = true,
@@ -13,6 +14,7 @@ class TileSettingsEntity {
     this.badgeTypeInImage = true,
     this.badgeTypeInText = true,
     this.boardgameInTitle = true,
+    this.showQuantity = true,
   });
 
   TileSettingsEntity copyWith({
@@ -21,6 +23,7 @@ class TileSettingsEntity {
     bool? badgeTypeInImage,
     bool? badgeTypeInText,
     bool? boardgameInTitle,
+    bool? showQuantity,
   }) {
     return TileSettingsEntity(
       playerColorInBorder: playerColorInBorder ?? this.playerColorInBorder,
@@ -28,6 +31,7 @@ class TileSettingsEntity {
       badgeTypeInImage: badgeTypeInImage ?? this.badgeTypeInImage,
       badgeTypeInText: badgeTypeInText ?? this.badgeTypeInText,
       boardgameInTitle: boardgameInTitle ?? this.boardgameInTitle,
+      showQuantity: showQuantity ?? this.showQuantity,
     );
   }
 
@@ -37,6 +41,7 @@ class TileSettingsEntity {
     if (action == TileSettings.badgeTypeInImage) return badgeTypeInImage;
     if (action == TileSettings.badgeTypeInText) return badgeTypeInText;
     if (action == TileSettings.boardgameInTitle) return boardgameInTitle;
+    if (action == TileSettings.showQuantity) return showQuantity;
     return false;
   }
 }

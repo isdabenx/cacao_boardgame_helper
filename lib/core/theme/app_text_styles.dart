@@ -84,4 +84,23 @@ class AppTextStyles {
   );
 
   static TextStyle markdownH2 = _title.copyWith(fontSize: 20);
+
+  static const TextStyle tileQuantityTextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: AppFonts.bodyFont,
+    fontWeight: FontWeight.bold,
+    color: AppColors.greenNormal,
+    shadows: [
+      Shadow(
+        offset: Offset(1, 1),
+        color: AppColors.black,
+        blurRadius: 4,
+      ),
+      Shadow(
+        offset: Offset(-1, -1),
+        color: AppColors.black,
+        blurRadius: 4,
+      ),
+    ],
+  );
 }

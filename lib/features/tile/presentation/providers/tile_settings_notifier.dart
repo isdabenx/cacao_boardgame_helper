@@ -35,6 +35,11 @@ class TileSettingsNotifier extends Notifier<TileSettingsEntity> {
     _saveSettings();
   }
 
+  void toggleShowQuantity() {
+    state = state.copyWith(showQuantity: !state.showQuantity);
+    _saveSettings();
+  }
+
   Future<void> _loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
     final playerColorInBorder = prefs.getBool('playerColorInBorder') ?? true;
@@ -67,6 +72,7 @@ class TileSettingsNotifier extends Notifier<TileSettingsEntity> {
     if (action == TileSettings.badgeTypeInImage) toggleBadgeTypeInImage();
     if (action == TileSettings.badgeTypeInText) toggleBadgeTypeInText();
     if (action == TileSettings.boardgameInTitle) toggleBoardgameInTitle();
+    if (action == TileSettings.showQuantity) toggleShowQuantity();
   }
 }
 

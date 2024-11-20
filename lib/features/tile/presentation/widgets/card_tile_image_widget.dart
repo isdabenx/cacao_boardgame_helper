@@ -9,11 +9,15 @@ class CardTileImageWidget extends StatelessWidget {
     required this.tileType,
     required this.filenameImage,
     required this.badgeTypeInImage,
+    required this.quantity,
+    required this.showQuantity,
   });
 
   final String tileType;
   final String filenameImage;
   final bool badgeTypeInImage;
+  final int quantity;
+  final bool showQuantity;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +45,13 @@ class CardTileImageWidget extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
+        if (showQuantity)
+          Positioned(
+              bottom: 4,
+              right: 4,
+              child: Text('x$quantity',
+                  style: AppTextStyles.tileQuantityTextStyle)),
       ],
     );
   }

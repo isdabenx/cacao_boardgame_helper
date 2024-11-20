@@ -32,6 +32,8 @@ class CardTileWidget extends ConsumerWidget {
             tileType: tile.typeAsString,
             filenameImage: tile.filenameImage,
             badgeTypeInImage: tileSettings.badgeTypeInImage,
+            quantity: tile.quantity,
+            showQuantity: tileSettings.showQuantity,
           ),
           if (tileSettings.boardgameInTitle)
             CardTileBoardgameTitleWidget(
