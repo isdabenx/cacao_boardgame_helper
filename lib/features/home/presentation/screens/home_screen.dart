@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4.0),
                 child: Text(
-                  'Visita el nostre repositori a GitHub:',
+                  'Visit our GitHub repository:',
                   style: AppTextStyles.markdownBody.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
