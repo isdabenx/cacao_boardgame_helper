@@ -28,21 +28,22 @@ class GameSetupDetailScreen extends StatelessWidget {
               child: Text(
                 'Sumary',
                 textAlign: TextAlign.center,
-                style: AppTextStyles.boardgameTitleTextStyle,
+                style: AppTextStyles.boardgameTitleTextStyle
+                    .copyWith(fontSize: 16),
               ),
             ),
             Tab(
-              child: Text(
-                'Preparation',
-                textAlign: TextAlign.center,
-                style: AppTextStyles.boardgameTitleTextStyle,
-              ),
+              child: Text('Preparation',
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.boardgameTitleTextStyle
+                      .copyWith(fontSize: 16)),
             ),
             Tab(
               child: Text(
                 'Tiles',
                 textAlign: TextAlign.center,
-                style: AppTextStyles.boardgameTitleTextStyle,
+                style: AppTextStyles.boardgameTitleTextStyle
+                    .copyWith(fontSize: 16),
               ),
             ),
           ],
