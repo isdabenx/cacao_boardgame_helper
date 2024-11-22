@@ -116,14 +116,25 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
 
     if (players.length > 2) {
       tiles = tiles.map((tile) {
+        final color = tile.color.toString().split('.').last;
         if (tile.name == '1-1-1-1') {
-          preparation.add(PreparationEntity(
-              description: 'Each player sorts out the 1-1-1-1 worker tiles'));
+          preparation.add(
+            PreparationEntity(
+                description:
+                    'Player $color searches for one of the 1-1-1-1 worker tiles and returns it to the game box',
+                color: color,
+                imagePath: '${Assets.imagesTilePath}${tile.filenameImage}'),
+          );
           return tile.copyWith(quantity: tile.quantity - 1);
         }
         if (players.length > 3 && tile.name == '2-1-0-1') {
-          preparation.add(PreparationEntity(
-              description: 'Each player sorts out the 2-1-0-1 worker tiles'));
+          preparation.add(
+            PreparationEntity(
+                description:
+                    'Player $color searches for one of the 2-1-0-1 worker tiles and returns it to the game box',
+                color: color,
+                imagePath: '${Assets.imagesTilePath}${tile.filenameImage}'),
+          );
           return tile.copyWith(quantity: tile.quantity - 1);
         }
         return tile;

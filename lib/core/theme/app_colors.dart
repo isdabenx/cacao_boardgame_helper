@@ -35,4 +35,11 @@ class AppColors {
   static Color findColorByName(String color) {
     return colors[color] ?? Colors.transparent;
   }
+
+  static String findColorName(Color color) {
+    return colors.entries
+        .firstWhere((entry) => entry.value == color,
+            orElse: () => MapEntry('', Colors.transparent))
+        .key;
+  }
 }
