@@ -1,4 +1,3 @@
-import 'package:cacao_boardgame_helper/core/data/models/tile_model.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/providers/tile_notifier.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/widgets/card_tile_widget.dart';
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
@@ -6,9 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class TileListGrillWidget extends ConsumerStatefulWidget {
-  const TileListGrillWidget({super.key, this.filteredTiles = const []});
-
-  final List<TileModel> filteredTiles;
+  const TileListGrillWidget({super.key});
 
   @override
   ConsumerState<TileListGrillWidget> createState() =>
@@ -16,19 +13,6 @@ class TileListGrillWidget extends ConsumerStatefulWidget {
 }
 
 class _TileListGrillWidgetState extends ConsumerState<TileListGrillWidget> {
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      if (widget.filteredTiles.isNotEmpty) {
-        ref.read(tileNotifierProvider.notifier).pushTiles(widget.filteredTiles);
-      } else {
-        ref.read(tileNotifierProvider.notifier).loadTiles();
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final tiles = ref.watch(tileNotifierProvider);

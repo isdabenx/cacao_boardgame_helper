@@ -14,7 +14,6 @@ class TileNotifier extends Notifier<List<TileModel>> {
 
   Future<void> _initialize() async {
     _database = await ref.watch(databaseProvider.future);
-    loadTiles();
   }
 
   void loadTiles() {

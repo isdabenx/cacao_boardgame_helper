@@ -30,9 +30,7 @@ class GameSetupDetailScreen extends StatelessWidget {
             DetailedPreparationWidget(preparation: gameSetup.preparation),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TileListGrillWidget(
-                filteredTiles: gameSetup.tiles,
-              ),
+              child: TileListGrillWidget(),
             ),
           ],
         ),

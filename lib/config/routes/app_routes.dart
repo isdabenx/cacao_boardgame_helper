@@ -5,9 +5,11 @@ import 'package:cacao_boardgame_helper/features/game_setup/presentation/screens/
 import 'package:cacao_boardgame_helper/features/home/presentation/screens/home_screen.dart';
 import 'package:cacao_boardgame_helper/features/rule/presentation/rule_screen.dart';
 import 'package:cacao_boardgame_helper/features/splash/presentation/screens/splash_screen.dart';
+import 'package:cacao_boardgame_helper/features/tile/presentation/providers/tile_notifier.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/screens/tile_detail_screen.dart';
 import 'package:cacao_boardgame_helper/features/tile/presentation/screens/tile_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppRoutes {
   static const String splash = '/';
@@ -22,7 +24,15 @@ class AppRoutes {
     splash: (context) => const SplashScreen(),
     home: (context) => const HomeScreen(),
     rule: (context) => const RuleScreen(),
-    tile: (context) => const TileListScreen(),
+    tile: (context) => Consumer(
+          builder: (context, ref, child) {
+            Future(() {
+              final tilesNotifier = ref.read(tileNotifierProvider.notifier);
+              tilesNotifier.loadTiles();
+            });
+            return const TileListScreen();
+          },
+        ),
     gameSetup: (context) => const GameSetupScreen(),
   };
 
@@ -35,7 +45,15 @@ class AppRoutes {
     } else if (settings.name == gameSetupDetail) {
       final gameSetup = settings.arguments as GameSetupStateEntity;
       return MaterialPageRoute(
-        builder: (context) => GameSetupDetailScreen(gameSetup: gameSetup),
+        builder: (context) => Consumer(
+          builder: (context, ref, child) {
+            Future(() {
+              final tilesNotifier = ref.read(tileNotifierProvider.notifier);
+              tilesNotifier.pushTiles(gameSetup.tiles);
+            });
+            return GameSetupDetailScreen(gameSetup: gameSetup);
+          },
+        ),
       );
     }
     return null;
