@@ -46,6 +46,7 @@ flutter:
     - assets/images/tiles/
     - assets/images/tiles/description/
     - assets/images/boardgames/
+    - assets/images/preparation/
     - assets/initial_data/
     - assets/rules/
   fonts:

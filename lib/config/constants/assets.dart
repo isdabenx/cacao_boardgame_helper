@@ -17,4 +17,18 @@ class Assets {
   static const String ruleCacaoPdf = 'assets/rules/cacao_rules_en.pdf';
   static const String ruleCacaoOverviewPdf =
       'assets/rules/cacao_overview_en.pdf';
+
+  static const String preparationVillagePrefix =
+      'assets/images/preparation/village_board_';
+  static const String preparationVillageSufix = '.webp';
+  static const String preparationCarrierPrefix =
+      'assets/images/preparation/carrier_';
+  static const String preparationCarrierSufix = '.png';
+  static const String preparationTilePrefix =
+      'assets/images/preparation/tile_back_';
+  static const String preparationTileSufix = '.jpg';
+  static const String preparationInitialTilesCacao =
+      'assets/images/preparation/initial_single_plantation_selling_price_2.webp';
+  static const String preparationResourcesCacao =
+      'assets/images/preparation/resources_cacao.webp';
 }

@@ -1,9 +1,11 @@
+import 'package:cacao_boardgame_helper/config/constants/assets.dart';
 import 'package:cacao_boardgame_helper/core/data/models/boardgame_model.dart';
 import 'package:cacao_boardgame_helper/core/data/models/module_model.dart';
 import 'package:cacao_boardgame_helper/core/data/models/tile_model.dart';
 import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/game_setup_state_entity.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/player_entity.dart';
+import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/preparation_entity.dart';
 import 'package:cacao_boardgame_helper/shared/providers/boardgame_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -73,6 +75,7 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
   }
 
   void startGame() {
+    final List<PreparationEntity> preparation = [];
     final modules = state.modules
         .where((m) => state.expansions.any((e) => e.id == m.boardgameId))
         .toList();
@@ -84,6 +87,25 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
         AppColors.colors.keys.where((color) => playerColors.contains(color));
 
     List<TileModel> tiles = filteredColors.expand((color) {
+      preparation.add(PreparationEntity(
+          description: 'Player $color takes the village board of color $color',
+          color: color,
+          imagePath:
+              '${Assets.preparationVillagePrefix}$color${Assets.preparationVillageSufix}'));
+      preparation.add(PreparationEntity(
+          description: 'Player $color takes the water carrier of color $color',
+          color: color,
+          imagePath:
+              '${Assets.preparationCarrierPrefix}$color${Assets.preparationCarrierSufix}'));
+      preparation.add(PreparationEntity(
+          description:
+              'Player $color puts the water carrier on the water field with the value “-10”',
+          color: color));
+      preparation.add(PreparationEntity(
+          description: 'Player $color get all tiles with color $color',
+          color: color,
+          imagePath:
+              '${Assets.preparationTilePrefix}$color${Assets.preparationTileSufix}'));
       return state.expansions.expand((boardgame) {
         return boardgame.tiles.where((t) =>
             t.color ==
@@ -95,9 +117,13 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
     if (players.length > 2) {
       tiles = tiles.map((tile) {
         if (tile.name == '1-1-1-1') {
+          preparation.add(PreparationEntity(
+              description: 'Each player sorts out the 1-1-1-1 worker tiles'));
           return tile.copyWith(quantity: tile.quantity - 1);
         }
         if (players.length > 3 && tile.name == '2-1-0-1') {
+          preparation.add(PreparationEntity(
+              description: 'Each player sorts out the 2-1-0-1 worker tiles'));
           return tile.copyWith(quantity: tile.quantity - 1);
         }
         return tile;
@@ -108,7 +134,33 @@ class GameSetupNotifier extends Notifier<GameSetupStateEntity> {
       tiles.addAll(e.tiles.where((t) => t.color == null));
     });
 
-    state = state.copyWith(players: players, modules: modules, tiles: tiles);
+    preparation.add(PreparationEntity(
+        description:
+            'Each player mixes their worker tiles and puts them as a face-down worker draw pile next to their village board. After that, they draw the 3 top worker tiles from their worker draw pile and take them into their hand'));
+
+    preparation.add(PreparationEntity(
+        description:
+            'From the jungle tiles, get "single plantation" and "market, selling price 2" and place them face up in the middle of the table diagonally to one another; they form the starting tiles of the playing area',
+        imagePath: Assets.preparationInitialTilesCacao));
+
+    preparation.add(PreparationEntity(
+        description:
+            'Mix the remaining jungle tiles and lay them out as a face-down jungle draw pile'));
+
+    preparation.add(PreparationEntity(
+        description:
+            'Draw the 2 top jungle tiles from the jungle draw pile and place them next to the pile as a face-up jungle display'));
+
+    preparation.add(PreparationEntity(
+        description:
+            'Lay out the cacao fruits and the sun tokens as separate supply piles. Put the gold coins next to them to serve as the bank',
+        imagePath: Assets.preparationResourcesCacao));
+
+    state = state.copyWith(
+        players: players,
+        modules: modules,
+        tiles: tiles,
+        preparation: preparation);
   }
 }
 
