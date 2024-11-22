@@ -1,3 +1,5 @@
+import 'package:cacao_boardgame_helper/core/theme/app_colors.dart';
+import 'package:cacao_boardgame_helper/core/theme/app_text_styles.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/domain/entities/game_setup_state_entity.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/detailed_preparation_widget.dart';
 import 'package:cacao_boardgame_helper/features/game_setup/presentation/widgets/detailed_sumary_widget.dart';
@@ -19,11 +21,32 @@ class GameSetupDetailScreen extends StatelessWidget {
         actions: [SettingsIconWidget()],
         title: 'Game Setup',
         showBackButton: true,
-        appBarBottom: TabBar(tabs: [
-          Tab(text: 'Sumary'),
-          Tab(text: 'Game Preparation'),
-          Tab(text: 'Tiles'),
-        ]),
+        appBarBottom: TabBar(
+          indicatorColor: AppColors.greenDarker,
+          tabs: [
+            Tab(
+              child: Text(
+                'Sumary',
+                textAlign: TextAlign.center,
+                style: AppTextStyles.boardgameTitleTextStyle,
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Preparation',
+                textAlign: TextAlign.center,
+                style: AppTextStyles.boardgameTitleTextStyle,
+              ),
+            ),
+            Tab(
+              child: Text(
+                'Tiles',
+                textAlign: TextAlign.center,
+                style: AppTextStyles.boardgameTitleTextStyle,
+              ),
+            ),
+          ],
+        ),
         body: TabBarView(
           children: [
             DetailedSumaryWidget(gameSetup: gameSetup),
