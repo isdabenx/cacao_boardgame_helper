@@ -1,0 +1,30 @@
+name: Pull Request Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  flutter-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Check outdated dependencies
+        run: dart pub outdated | grep -q 'upgradable' && exit 1 || exit 0
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Format
+        run: dart format --set-exit-if-changed .
+
+      - name: Test
+        run: flutter test
