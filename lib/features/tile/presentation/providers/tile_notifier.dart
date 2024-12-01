@@ -30,7 +30,7 @@ class TileNotifier extends Notifier<List<TileModel>> {
     }
     final List<TileModel> tiles = _database!.tileModels
         .filter()
-        .anyOf(idsList, (t, id) => t.idEqualTo(id))
+        .anyOf<Id, dynamic>(idsList, (t, id) => t.idEqualTo(id))
         .findAllSync();
     state = tiles;
   }

@@ -3,7 +3,7 @@ import 'package:dart_pre_commit/dart_pre_commit.dart';
 import 'package:git_hooks/git_hooks.dart';
 
 void main(List<String> arguments) {
-  Map<Git, UserBackFun> params = {
+  final params = <Git, UserBackFun>{
     Git.commitMsg: _conventionalCommitMsg,
     Git.preCommit: _preCommit,
   };
@@ -74,7 +74,9 @@ Future<bool> _conventionalCommitMsg() async {
     }
   } catch (e) {
     _printMessage(
-        '❌ Error al obtener el mensaje de commit: $e', CommitColors.error);
+      '❌ Error al obtener el mensaje de commit: $e',
+      CommitColors.error,
+    );
     return false;
   }
   return false;
@@ -82,18 +84,21 @@ Future<bool> _conventionalCommitMsg() async {
 
 class CommitValidator {
   static final String typePattern = '^(${commitTypes.keys.join('|')})';
-  static const String scopePattern = '(\\([\\w\\-\\.]+\\))?';
+  static const String scopePattern = r'(\([\w\-\.]+\))?';
   static const String breakingChangePattern = '(!)?';
   static const String delimiterPattern = ': ';
   static const String descriptionPattern = '(.+)';
-  static const String bodyPattern = '([\\s\\S]*)';
+  static const String bodyPattern = r'([\s\S]*)';
 
   static final RegExp conventionCommitPattern = RegExp(
-      '$typePattern$scopePattern$breakingChangePattern$delimiterPattern$descriptionPattern$bodyPattern');
+    '$typePattern$scopePattern$breakingChangePattern$delimiterPattern$descriptionPattern$bodyPattern',
+  );
 
   static bool isValidCommitType(String commitMsg) {
-    return commitTypes.keys.any((type) =>
-        commitMsg.startsWith('$type:') || commitMsg.startsWith('$type('));
+    return commitTypes.keys.any(
+      (type) =>
+          commitMsg.startsWith('$type:') || commitMsg.startsWith('$type('),
+    );
   }
 
   static bool isConventionalCommit(String commitMsg) {
@@ -105,20 +110,25 @@ class CommitValidator {
     final commitType = commitMsg.split(':').first;
     if (commitMsg.length <= minCommitMsgLength) {
       _printMessage(
-          '${CommitMessages.shortCommitMsg}${commitMsg.length}\n   Mensaje de commit: $commitMsg',
-          CommitColors.warning);
+        '${CommitMessages.shortCommitMsg}${commitMsg.length}\n   Mensaje de commit: $commitMsg',
+        CommitColors.warning,
+      );
     }
     _printMessage(
-        '⚠️  Tipo de commit: $commitType - ${commitTypes[commitType]}',
-        CommitColors.info);
+      '⚠️  Tipo de commit: $commitType - ${commitTypes[commitType]}',
+      CommitColors.info,
+    );
   }
 
   static void printInvalidCommitTypeMessage(String commitMsg) {
     _printMessage(
-        '${CommitMessages.invalidCommitMsgPattern}\n   Mensaje de commit: $commitMsg',
-        CommitColors.error);
-    _printMessage('${CommitMessages.validCommitTypes}${_formatCommitTypes()}',
-        CommitColors.info);
+      '${CommitMessages.invalidCommitMsgPattern}\n   Mensaje de commit: $commitMsg',
+      CommitColors.error,
+    );
+    _printMessage(
+      '${CommitMessages.validCommitTypes}${_formatCommitTypes()}',
+      CommitColors.info,
+    );
   }
 
   static String _formatCommitTypes() {

@@ -27,10 +27,10 @@ class BoardgameModel {
 
   factory BoardgameModel.fromJson(Map<String, dynamic> json) {
     return BoardgameModel(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      filenameImage: json['filenameImage'],
+      id: json['id'] as Id,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      filenameImage: json['filenameImage'] as String,
     );
   }
 
