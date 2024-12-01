@@ -27,8 +27,7 @@ class AppRoutes {
     tile: (context) => Consumer(
           builder: (context, ref, child) {
             Future(() {
-              final tilesNotifier = ref.read(tileNotifierProvider.notifier);
-              tilesNotifier.loadTiles();
+              ref.read(tileNotifierProvider.notifier).loadTiles();
             });
             return const TileListScreen();
           },
@@ -38,18 +37,19 @@ class AppRoutes {
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     if (settings.name == tileDetail) {
-      final tile = settings.arguments as TileModel;
+      final tile = settings.arguments! as TileModel;
       return MaterialPageRoute(
         builder: (context) => TileDetailScreen(tile: tile),
       );
     } else if (settings.name == gameSetupDetail) {
-      final gameSetup = settings.arguments as GameSetupStateEntity;
+      final gameSetup = settings.arguments! as GameSetupStateEntity;
       return MaterialPageRoute(
         builder: (context) => Consumer(
           builder: (context, ref, child) {
             Future(() {
-              final tilesNotifier = ref.read(tileNotifierProvider.notifier);
-              tilesNotifier.pushTiles(gameSetup.tiles);
+              ref
+                  .read(tileNotifierProvider.notifier)
+                  .pushTiles(gameSetup.tiles);
             });
             return GameSetupDetailScreen(gameSetup: gameSetup);
           },

@@ -11,7 +11,7 @@ class SettingsIconWidget extends StatelessWidget {
     return IconButton(
       icon: Icon(Icons.settings),
       onPressed: () {
-        showMaterialModalBottomSheet(
+        showMaterialModalBottomSheet<void>(
           context: context,
           builder: (context) {
             return SafeArea(

@@ -34,9 +34,11 @@ class InitializationRepositoryImpl implements InitializationRepository {
   Future<void> _poblateDatabase() async {
     final String boardgamesJson =
         await rootBundle.loadString(Assets.boardgamesJson);
-    final List<dynamic> boardgamesData = json.decode(boardgamesJson);
+    final List<dynamic> boardgamesData =
+        json.decode(boardgamesJson) as List<dynamic>;
     final List<BoardgameModel> boardgames = boardgamesData
-        .map((boardgameData) => BoardgameModel.fromJson(boardgameData))
+        .map((boardgameData) =>
+            BoardgameModel.fromJson(boardgameData as Map<String, dynamic>))
         .toList();
 
     await _isar.writeTxn(() async {
@@ -44,9 +46,10 @@ class InitializationRepositoryImpl implements InitializationRepository {
     });
 
     final String modulesJson = await rootBundle.loadString(Assets.modulesJson);
-    final List<dynamic> modulesData = json.decode(modulesJson);
+    final List<dynamic> modulesData = json.decode(modulesJson) as List<dynamic>;
     final List<ModuleModel> modules = modulesData
-        .map((moduleData) => ModuleModel.fromJson(moduleData))
+        .map((moduleData) =>
+            ModuleModel.fromJson(moduleData as Map<String, dynamic>))
         .toList();
 
     await _isar.writeTxn(() async {
@@ -62,9 +65,10 @@ class InitializationRepositoryImpl implements InitializationRepository {
     });
 
     final String tilesJson = await rootBundle.loadString(Assets.tilesJson);
-    final List<dynamic> tilesData = json.decode(tilesJson);
-    final List<TileModel> tiles =
-        tilesData.map((tileData) => TileModel.fromJson(tileData)).toList();
+    final List<dynamic> tilesData = json.decode(tilesJson) as List<dynamic>;
+    final List<TileModel> tiles = tilesData
+        .map((tileData) => TileModel.fromJson(tileData as Map<String, dynamic>))
+        .toList();
 
     await _isar.writeTxn(() async {
       for (final tile in tiles) {

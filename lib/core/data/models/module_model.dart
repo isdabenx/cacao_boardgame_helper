@@ -22,10 +22,10 @@ class ModuleModel {
 
   factory ModuleModel.fromJson(Map<String, dynamic> json) {
     return ModuleModel(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      boardgameId: json['boardgame'],
+      id: json['id'] as Id,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      boardgameId: json['boardgame'] as int?,
     );
   }
 

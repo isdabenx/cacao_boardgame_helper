@@ -22,7 +22,7 @@ class RuleScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
+                  MaterialPageRoute<RulePdfScreen>(
                     builder: (context) => RulePdfScreen(
                       title: 'Instructions',
                       pdfPath: Assets.ruleCacaoPdf,
@@ -59,7 +59,7 @@ class RuleScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
+                  MaterialPageRoute<RulePdfScreen>(
                     builder: (context) => RulePdfScreen(
                         title: 'Overview',
                         pdfPath: Assets.ruleCacaoOverviewPdf),

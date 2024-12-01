@@ -75,11 +75,11 @@ class TileModel {
 
   factory TileModel.fromJson(Map<String, dynamic> json) {
     return TileModel(
-      id: json['id'],
-      name: json['name'],
-      description: json['description'],
-      filenameImage: json['filenameImage'],
-      quantity: json['quantity'],
+      id: json['id'] as Id,
+      name: json['name'] as String,
+      description: json['description'] as String,
+      filenameImage: json['filenameImage'] as String,
+      quantity: json['quantity'] as int,
       type: json['type'] != null
           ? TileType.values.firstWhere(
               (type) => type.toString() == 'TileType.${json['type']}',
@@ -90,7 +90,7 @@ class TileModel {
               (color) => color.toString() == 'TileColor.${json['color']}',
             )
           : null,
-      boardgameId: json['boardgame'],
+      boardgameId: json['boardgame'] as int,
     );
   }
 
