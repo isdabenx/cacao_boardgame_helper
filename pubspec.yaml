@@ -3,7 +3,7 @@ description: "A Flutter app to assist players of the Cacao board game and its
   expansions by providing digital tools for score tracking, rule consultation,
   and game management."
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+1
 
 environment:
   sdk: ^3.5.4
@@ -24,7 +24,7 @@ dependencies:
   modal_bottom_sheet: ^3.0.0
   path_provider: ^2.1.5
   shared_preferences: ^2.3.3
-  syncfusion_flutter_pdfviewer: ^27.2.4
+  syncfusion_flutter_pdfviewer: ^27.2.5
   url_launcher: ^6.3.1
 
 dev_dependencies:
@@ -66,4 +66,3 @@ flutter:
 dart_pre_commit:
   outdated: false
   analyze: false
-
